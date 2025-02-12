@@ -1,14 +1,27 @@
 .home {
     text-align: center;
-    padding: 2rem;
-  }
+    padding: 3rem;
+}
+
+.home-container {
+    max-width: 800px;  /* New: Added max-width */
+    margin: 0 auto;  /* New: Centered container */
+}
   
-  .home h1 {
+.profile-pic {
+    width: 150px;  /* New: Added width */
+    height: 150px;  /* New: Added height */
+    border-radius: 50%;  /* New: Added border-radius */
+    margin-bottom: 1rem;  /* New: Added margin-bottom */
+}
+  
+h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
+    color: #333;  /* New: Added color */
+    margin-bottom: 0.5rem;  /* Updated: Changed margin-bottom */
+}
   
-  .home p {
-    font-size: 1.25rem;
+p {
+    font-size: 1.2rem;  /* Updated: Changed font-size */
     color: #666;
-  }
+}
