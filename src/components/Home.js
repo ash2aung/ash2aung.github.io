@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className="home">
       <h1>Welcome to My Portfolio</h1>
-      <p>Hi, I'm [Your Name]. This site is under construction.</p>
+      <p>Hi, I'm Htet Wai Yan Aung but most of my friends call me Ash.</p>
     </div>
   );
 }
