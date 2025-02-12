@@ -9,24 +9,28 @@
     width: 100%;
   }
   
-  .footer-content {
+.footer-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-  }
+}
   
-  .social-links {
-    margin-top: 0.5rem;
-  }
-  
-  .social-links a {
+.social-links {
+  color: #ffdd57;  /* Updated: Changed color */
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;  /* Updated: Changed font-weight */
+}
+
+.social-links a {
     color: #00aced;
     text-decoration: none;
     margin: 0 10px;
     font-weight: 500;
-  }
+}
   
-  .social-links a:hover {
+.social-links a:hover {
+    color: #f1c40f;  /* Updated: Changed hover color */
     text-decoration: underline;
-  }
+}
   
