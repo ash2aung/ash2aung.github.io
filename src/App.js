@@ -1,4 +1,4 @@
-// Import React and routing functionality
+// src/styles/App.js
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';  // Added Routes and Route
 
