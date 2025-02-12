@@ -9,7 +9,7 @@ function Header() {
       <div className="header-content">
         {/* Your name or logo */}
         <Link to="/" className="logo">
-          Your Name
+          Ash Aung
         </Link>
 
         {/* Navigation menu */}
