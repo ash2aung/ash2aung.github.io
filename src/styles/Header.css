@@ -15,15 +15,23 @@
   }
   
   .logo {
+    display: flex;  /* New: Added display flex */
+    align-items: center;  /* New: Align items center */
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
     text-decoration: none;
   }
-  
+
+  .favicon {
+    width: 24px;  
+    height: 24px;  
+    margin-right: 8px;  
+  }
+
   .navigation {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
   }
   
   .nav-link {
@@ -36,3 +44,10 @@
   .nav-link:hover {
     color: #007bff;
   }
+
+/* Mobile menu */
+@media (max-width: 768px) {
+  .navigation {
+    display: none; 
+  }
+}
