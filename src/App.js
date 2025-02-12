@@ -1,6 +1,6 @@
 // Import React and routing functionality
 import React from 'react';
-import { HashRouter as Router } from 'react-router-dom';  // Changed this line
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';  // Added Routes and Route
 
 // Import our components
 import Header from './components/Header';
@@ -15,7 +15,7 @@ import './styles/App.css';
 
 function App() {
   return (
-    <Router>  {/* This now uses HashRouter instead of BrowserRouter */}
+    <Router>
       <div className="app-container">
         <Header />
         <main className="main-content">
