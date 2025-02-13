@@ -14,19 +14,19 @@ function Home() {
           </p>
           <ul className="intro-list">
             <li>
-              Learn more about me <Link to="/about" className="intro-button">About Me</Link>
+              Learn more about me <Link to="/about" className="intro-button">Here</Link>
             </li>
             <li>
-              Here're some of my projects <Link to="/projects" className="intro-button">Projects</Link>
+              Here're some of my <Link to="/projects" className="intro-button">Projects</Link>
             </li>
             <li>
-              Skills and experience I've gained so far <Link to="/skills" className="intro-button">Skills</Link>
+              View my skills and experience <Link to="/skills" className="intro-button">Here</Link>
             </li>
             <li>
-              Here're my contacts <Link to="/contact" className="intro-button">Contact</Link>
+              Here're my <Link to="/contact" className="intro-button">Contacts</Link>
             </li>
             <li>
-              Here's my resume <a href={resume} className="intro-button" download>Download Resume</a>
+              Download my resume <a href={resume} className="intro-button" download>Here</a>
             </li>
           </ul>
           <hr className="divider" />
