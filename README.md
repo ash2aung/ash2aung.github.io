@@ -47,25 +47,7 @@ The site is deployed using GitHub Pages. To deploy new changes:
 npm run deploy
 ```
 ## 📁 Project Structure
-ash2aung.github.io/
-├── public/
-│   ├── favicon.ico
-│   └── index.html
-├── src/
-│   ├── assets/
-│   ├── components/
-│   │   ├── About.js
-│   │   ├── Contact.js
-│   │   ├── Header.js
-│   │   ├── Home.js
-│   │   ├── Projects.js
-│   │   └── Skills.js
-│   ├── styles/
-│   │   ├── About.css
-│   │   ├── App.css
-│   │   └── ...
-│   └── App.js
-└── package.json
+![project structure](src/assets/filedirectory.png)
 
 ## 📜 License
 This project is licensed under the MIT License - see the [LICENSE file](./license) for details.
