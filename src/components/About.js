@@ -1,23 +1,32 @@
 import React from 'react';
 import '../styles/About.css';
+import profilePic from '../assets/ash.jpg';
 
 function About() {
   return (
-    <section className="about-container">
-      <h1>About Me</h1>
-      <p>Hello! My name is Htet Wai Yan Aung, but I usually go by Ash. I'm an 19-year-old student currently studying Software Systems at Simon Fraser University. My hobbies vary from reading manga in bed to going on extreme hikes without food for the entire day. I'm also a huge fan of R&B music, and I've been listening to BRB's albums on repeat for the past few weeks.</p>
-      
-      <h2>Education</h2>
-      <p>I graduated from Yorkville secondary high school in 2023 and began university that same year. I'm currently in my second year, majoring in Software Systems.</p>
-      
-      <h2>Hobbies & Interests</h2>
-      <ul>
-        <li>Music: I enjoy listening to R&B, and my favorite artist right now is BRB.</li>
-        <li>Sports: I used to play basketball, but now I mostly play badminton.</li>
-        <li>Travel: I have been to Bangkok, Singapore, Hong Kong, Macau, Indonesia, Malaysia, and Vietnam with my family.</li>
-        <li>Hiking: I started hiking last spring, and I've gotten lost in the mountains a couple of times where I found my way back only after the sunset.</li>
-        <li>Photography: I enjoy photography, especially capturing beaches and mountains. Although I've only used my phone for photography so far, I take great pride in my work. I'm also planning to get a vintage digital camera to explore more.</li>
-      </ul>
+    <section className="about-wrapper">
+      <div className="image-container">
+        <img src={profilePic} alt="Ash Aung" className="profile-pic" />
+        <p className="image-caption">This picture was taken last year while hiking Light House Park.</p>
+      </div>
+      <div className="about-container">
+        <div className="about-intro">
+          <h1>About Me</h1>
+          <p>Hey there! I'm Htet Wai Yan Aung, a <strong>Software Systems student</strong> at Simon Fraser University. I have a passion for <strong>technology, music, and adventure</strong>. Whether it's diving into the latest R&B tracks or hiking without food for an entire day, I'm always up for a challenge!</p>
+        </div>
+
+        <h2>Education</h2>
+        <p>I graduated from <strong>Yorkville Secondary High School</strong> in 2023 and started my <strong>Software Systems</strong> major at SFU the same year. Currently, I'm in my <strong>second year</strong>, learning more about programming, software design, and problem-solving.</p>
+
+        <h2>Hobbies & Interests</h2>
+        <ul className="hobbies-list">
+          <li>🎵 <strong>Music:</strong> I enjoy listening to R&B, and my favorite artist right now is BRB.</li>
+          <li>🏸 <strong>Sports:</strong> I used to play basketball, but now I mostly play badminton.</li>
+          <li>✈️ <strong>Travel:</strong> I have visited Bangkok, Singapore, Hong Kong, Macau, Indonesia, Malaysia, and Vietnam with my family.</li>
+          <li>🥾 <strong>Hiking:</strong> I started hiking last spring and got lost a few times. Lesson learned: check the time regularly.</li>
+          <li>📸 <strong>Photography:</strong> I love capturing beaches and mountains. Planning to get a vintage digital camera soon!</li>
+        </ul>
+      </div>
     </section>
   );
 }

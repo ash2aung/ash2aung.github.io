@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Home.css";
 import profileImage from "../assets/profile.jpg";
+import resume from "../assets/resume.pdf"; // Import the resume
 
 function Home() {
   return (
@@ -11,6 +12,23 @@ function Home() {
           <p className="intro-text">
             Hi, I'm Ash. I'm a second year Software Systems student at Simon Fraser University. Welcome to my Portfolio!
           </p>
+          <ul className="intro-list">
+            <li>
+              Learn more about me <Link to="/about" className="intro-button">About Me</Link>
+            </li>
+            <li>
+              Here're some of my projects <Link to="/projects" className="intro-button">Projects</Link>
+            </li>
+            <li>
+              Skills and experience I've gained so far <Link to="/skills" className="intro-button">Skills</Link>
+            </li>
+            <li>
+              Here're my contacts <Link to="/contact" className="intro-button">Contact</Link>
+            </li>
+            <li>
+              Here's my resume <a href={resume} className="intro-button" download>Download Resume</a>
+            </li>
+          </ul>
           <hr className="divider" />
           <div className="social-links">
             <a href="https://github.com/ash2aung" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -22,15 +40,9 @@ function Home() {
           <img src={profileImage} alt="Ash Aung" className="profile-image" />
           <div className="name-container">
             <h1 className="name">Htet Wai Yan Aung</h1>
-            <p className="nickname">(but you can call me Ash)</p>
+            <p className="nickname">(but most people call me Ash)</p>
           </div>
         </div>
-      </div>
-      <div className="navigation-buttons">
-        <Link to="/about" className="nav-button">About Me</Link>
-        <Link to="/projects" className="nav-button">Projects</Link>
-        <Link to="/skills" className="nav-button">Skills</Link>
-        <Link to="/contact" className="nav-button">Contact</Link>
       </div>
     </section>
   );
