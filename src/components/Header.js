@@ -1,8 +1,6 @@
-// src/components/Header.js
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Header.css";
-import favicon from '../assets/favicon.ico';
 
 function Header() {
   return (
@@ -10,7 +8,7 @@ function Header() {
       <nav className="nav">
         <div className="logo-container">
           <Link to="/" className="logo">
-            <img src={favicon} alt="Logo" className="favicon" />
+            <img src={process.env.PUBLIC_URL + '/favicon.ico'} alt="Logo" className="favicon" />
             <span className="name">Ash <br /> Aung</span>
           </Link>
         </div>

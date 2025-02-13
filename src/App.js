@@ -1,7 +1,5 @@
-// src/App.js
-import React, { useEffect } from 'react'; // Added useEffect to the import
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';  // Added Routes and Route
-import favicon from './assets/favicon.ico'; // Added favicon import
+import React from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Import our components
 import Header from './components/Header';
@@ -16,13 +14,6 @@ import Contact from './components/Contact';
 import './styles/App.css';
 
 function App() {
-  useEffect(() => {
-    // Set favicon
-    const link = document.createElement('link');
-    link.rel = 'icon';
-    link.href = favicon;
-    document.head.appendChild(link);
-  }, []);
   return (
     <Router>
       <div className="app-container">
