@@ -5,19 +5,20 @@
 
 .home-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #fdfaf6;
+  padding: 2rem;
 }
 
 .home-content {
   display: flex;
   align-items: center;
-  text-align: center;
   max-width: 1200px;
   width: 100%;
-  padding: 20px;
+  margin-bottom: 3rem;
 }
 
 .left-content, .right-content {
@@ -26,6 +27,7 @@
 
 .left-content {
   text-align: left;
+  padding-right: 2rem;
 }
 
 .right-content {
@@ -35,43 +37,106 @@
 .profile-image-container {
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 1.5rem;
   position: relative;
 }
 
 .profile-image {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+.name-container {
+  text-align: center;
+}
+
 .intro-text {
   font-size: 1.2rem;
-  margin-bottom: 10px;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
 .divider {
   width: 100px;
   border: 1px solid #000;
-  margin: 10px 0;
+  margin: 1.5rem 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
 }
 
 .social-links a {
-  margin-right: 15px;
   text-decoration: none;
   font-weight: bold;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #007bff;
 }
 
 .name {
   font-size: 2.5rem;
   font-weight: bold;
-  line-height: 1.2;
+  margin: 0;
 }
 
 .nickname {
   font-size: 1.2rem;
   font-style: italic;
+  margin: 0.5rem 0 0 0;
+  color: #666;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.nav-button {
+  padding: 0.8rem 1.5rem;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 30px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #333;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .home-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .left-content {
+    padding-right: 0;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .navigation-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
