@@ -9,7 +9,7 @@ function Home() {
       <div className="home-content">
         <div className="left-content">
           <p className="intro-text">
-            I'm a second year Software Systems student at Simon Fraser University.
+            Hi, I'm Ash. I'm a second year Software Systems student at Simon Fraser University. Welcome to my Portfolio!
           </p>
           <hr className="divider" />
           <div className="social-links">
