@@ -28,10 +28,7 @@
   align-items: center;
 }
 
-.name {
-  font-size: 1rem; /* Adjusted font size */
-  line-height: 1;
-}
+
 
 .nav-links a {
   margin-left: 20px;
