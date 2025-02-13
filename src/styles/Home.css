@@ -4,24 +4,74 @@
 }
 
 .home-container {
-    max-width: 800px;  /* New: Added max-width */
-    margin: 0 auto;  /* New: Centered container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fdfaf6;
 }
-  
-.profile-pic {
-    width: 150px;  /* New: Added width */
-    height: 150px;  /* New: Added height */
-    border-radius: 50%;  /* New: Added border-radius */
-    margin-bottom: 1rem;  /* New: Added margin-bottom */
+
+.home-content {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
 }
-  
-h1 {
-    font-size: 2.5rem;
-    color: #333;  /* New: Added color */
-    margin-bottom: 0.5rem;  /* Updated: Changed margin-bottom */
+
+.left-content, .right-content {
+  flex: 1;
 }
-  
-p {
-    font-size: 1.2rem;  /* Updated: Changed font-size */
-    color: #666;
+
+.left-content {
+  text-align: left;
+}
+
+.right-content {
+  text-align: right;
+}
+
+.profile-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.divider {
+  width: 100px;
+  border: 1px solid #000;
+  margin: 10px 0;
+}
+
+.social-links a {
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.nickname {
+  font-size: 1.2rem;
+  font-style: italic;
 }
