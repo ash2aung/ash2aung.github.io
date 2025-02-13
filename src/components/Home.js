@@ -21,7 +21,7 @@ function Home() {
         <div className="profile-image-container">
           <img src={profileImage} alt="Ash Aung" className="profile-image" />
           <div className="name-container">
-            <h1 className="name">Ash Aung</h1>
+            <h1 className="name">Htet Wai Yan Aung</h1>
             <p className="nickname">(but you can call me Ash)</p>
           </div>
         </div>

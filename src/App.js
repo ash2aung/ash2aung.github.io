@@ -4,6 +4,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';  // Adde
 
 // Import our components
 import Header from './components/Header';
+import About from './components/About';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Projects from './components/Projects';
@@ -21,6 +22,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/contact" element={<Contact />} />
