@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Github, ExternalLink, Calendar, Tag } from 'lucide-react';
 import '../styles/Projects.css';
 import portfolioImage from '../assets/personal.png';
 import emergencyReporterImage from '../assets/emergency.png';
 import chaosImage from '../assets/chess.png';
-
-
 
 const projects = [
   {
@@ -23,12 +21,12 @@ const projects = [
     technologies: ['TypeScript', 'CSS', 'HTML', 'JavaScript'],
     date: 'Nov 2024',
     github: 'https://github.com/dagemd/272-FInal-project',
-    liveDemo: 'https://emergency-reporter.herokuapp.com',
+    liveDemo: '#',
     image: emergencyReporterImage
   },
   {
     title: 'Order and Chaos Game',
-    description: 'Strategic board game implementation where two players (Human vs AI) compete on a grid between 6x6 and 9x9. One player takes the role of Order, trying to create a line of 5 identical symbols (Xs or Os), while the other plays as Chaos, attempting to prevent such a line from forming. ',
+    description: 'Strategic board game implementation where two players (Human vs AI) compete on a grid between 6x6 and 9x9. One player takes the role of Order, trying to create a line of 5 identical symbols (Xs or Os), while the other plays as Chaos, attempting to prevent such a line from forming.',
     technologies: ['C++'],
     date: 'March 2024',
     github: 'https://replit.com/@ashhhh1507/chaos-and-order?v=1',
@@ -38,8 +36,23 @@ const projects = [
 ];
 
 function Projects() {
+  const [showMessage, setShowMessage] = useState(false);
+
+  const handleDemoClick = (e, projectTitle) => {
+    if (projectTitle === 'Emergency Reporter') {
+      e.preventDefault();
+      setShowMessage(true);
+      setTimeout(() => setShowMessage(false), 3000);
+    }
+  };
+
   return (
     <div className="projects">
+      {showMessage && (
+        <div className="demo-message">
+          Ahh you got me. I don't have a live demo for that project yet! 😅
+        </div>
+      )}
       <h1 className="projects-title">My Projects</h1>
       <p className="projects-subtitle">A collection of my recent work and side projects</p>
       <div className="projects-list">
@@ -53,7 +66,13 @@ function Projects() {
                     <Github size={20} />
                     <span>Code</span>
                   </a>
-                  <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="project-link">
+                  <a 
+                    href={project.liveDemo} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="project-link"
+                    onClick={(e) => handleDemoClick(e, project.title)}
+                  >
                     <ExternalLink size={20} />
                     <span>Demo</span>
                   </a>
