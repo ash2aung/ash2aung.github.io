@@ -1,48 +1,53 @@
 /* src/styles/Header.css */
 .header {
-    background-color: #007bff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-  
-.header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+.nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
-  
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
 .logo {
-    display: flex;  /* New: Added display flex */
-    align-items: center;  /* New: Align items center */
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.logo .name {
+  font-size: 1.2rem;  /* Reduced from default size */
+  line-height: 1.2;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #333;
+}
+
+.nav-links a:hover {
+  color: #007bff;
 }
 
 .favicon {
-    width: 24px;  
-    height: 24px;  
-    margin-right: 8px;  
-}
-
-.navigation {
-    display: flex;
-    gap: 1.5rem;
-}
-  
-.nav-link {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-  
-.nav-link:hover {
-    color: #ffdd57;
+    width: 48px;
+    height: 48px;
+    margin-right: 8px;
 }
 
 /* Mobile menu */
