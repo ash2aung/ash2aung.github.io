@@ -10,15 +10,6 @@ function About() {
       <h2>Education</h2>
       <p>I graduated from Yorkville secondary high school in 2023 and began university that same year. I'm currently in my second year, majoring in Software Systems.</p>
       
-      <h2>Experience</h2>
-      <ul>
-        <li>Worked part-time as a cashier at a stationery store (2016-2023)</li>
-        <li>Worked part-time as a salesman at a snack shop (2015-2020)</li>
-        <li>Volunteered at a church and taught the kids basic English and math (2022)</li>
-        <li>Volunteered at a retirement home to assist elders with their daily needs (2022)</li>
-        <li>Currently the Director of Internal Relations of the Software Systems Student Society (2024-current)</li>
-      </ul>
-      
       <h2>Hobbies & Interests</h2>
       <ul>
         <li>Music: I enjoy listening to R&B, and my favorite artist right now is BRB.</li>
