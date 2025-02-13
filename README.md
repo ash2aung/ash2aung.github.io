@@ -47,7 +47,7 @@ The site is deployed using GitHub Pages. To deploy new changes:
 npm run deploy
 ```
 ## 📁 Project Structure
-![project structure](src/assets/filedirectory.png)
+<img src="src/assets/filedirectory.png" width="200" alt="project structure">
 
 ## 📜 License
 This project is licensed under the MIT License - see the [LICENSE file](./license) for details.
