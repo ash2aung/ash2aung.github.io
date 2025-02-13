@@ -20,7 +20,7 @@ function Home() {
         </div>
         <div className="right-content">
           <h1 className="name">
-            Ash <br /> Aung
+            Htet Wai Yan <br /> Aung
           </h1>
           <p className="nickname">(but you can call me Ash)</p>
         </div>
