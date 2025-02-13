@@ -63,7 +63,7 @@ Why MIT License? I chose the MIT License because:
 
 ## 📞 Contact
 For inquiries, reach out via:
-- Email: ash2aung@example.com
+- Email: hwa201@sfu.ca
 - LinkedIn: [linkedin.com/in/ash2aung](https://linkedin.com/in/ash2aung)
 - GitHub: [github.com/ash2aung](https://github.com/ash2aung)
 
