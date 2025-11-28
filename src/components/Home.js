@@ -5,45 +5,73 @@ import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 
 function Home() {
   return (
-    <div className="container section">
+    <div className="container section" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
       <div className="grid-2" style={{ alignItems: 'center' }}>
         <div className="left-content">
-          <div className="badge badge-secondary" style={{ marginBottom: '1rem' }}>Available for work</div>
-          <h1 className="h1" style={{ marginBottom: '1rem' }}>Hi, I'm Ash.</h1>
-          <p className="lead" style={{ marginBottom: '2rem' }}>
-            I'm a second year Software Systems student at SFU, passionate about building modern, accessible web applications.
+          <h1 className="h1">Building digital<br/>experiences.</h1>
+          
+          <p className="lead" style={{ marginBottom: '2.5rem' }}>
+            I'm Ash, a Software Systems student at SFU. I build accessible, pixel-perfect, and performant web applications.
           </p>
           
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <a href="#projects" className="btn btn-primary">
-              View Work <ArrowRight size={16} style={{ marginLeft: '0.5rem' }}/>
+              View Projects
             </a>
             <a href={resume} className="btn btn-outline" download>
-              Download CV
+              Resume
             </a>
           </div>
 
-          <div style={{ marginTop: '2.5rem', display: 'flex', gap: '1.5rem' }}>
-            <a href="https://github.com/ash2aung" target="_blank" rel="noreferrer" className="muted"><Github size={20} /></a>
-            <a href="https://linkedin.com/in/ash2aung" target="_blank" rel="noreferrer" className="muted"><Linkedin size={20} /></a>
-            <a href="mailto:hwa201@sfu.ca" className="muted"><Mail size={20} /></a>
+          <div style={{ marginTop: '3rem', display: 'flex', gap: '1.5rem' }}>
+            {[
+              { Icon: Github, link: "https://github.com/ash2aung" },
+              { Icon: Linkedin, link: "https://linkedin.com/in/ash2aung" },
+              { Icon: Mail, link: "mailto:hwa201@sfu.ca" }
+            ].map(({ Icon, link }, idx) => (
+              <a 
+                key={idx} 
+                href={link} 
+                target="_blank" 
+                rel="noreferrer" 
+                style={{ color: '#666', transition: 'color 0.2s' }}
+                onMouseOver={(e) => e.currentTarget.style.color = '#fff'}
+                onMouseOut={(e) => e.currentTarget.style.color = '#666'}
+              >
+                <Icon size={20} />
+              </a>
+            ))}
           </div>
         </div>
 
         <div className="profile-image-container" style={{ display: 'flex', justifyContent: 'center' }}>
-          <img 
-            src={profileImage} 
-            alt="Ash Aung" 
-            style={{ 
-              width: '280px', 
-              height: '280px', 
-              borderRadius: 'var(--radius)', 
-              objectFit: 'cover',
-              border: '1px solid hsl(var(--border))',
-              padding: '0.5rem',
-              backgroundColor: 'hsl(var(--card))'
-            }} 
-          />
+          <div style={{ 
+            position: 'relative',
+            width: '280px', 
+            height: '280px',
+          }}>
+            {/* Subtle glow effect behind image */}
+            <div style={{
+              position: 'absolute',
+              inset: '-20px',
+              background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%)',
+              borderRadius: '50%',
+              zIndex: 0
+            }} />
+            <img 
+              src={profileImage} 
+              alt="Ash Aung" 
+              style={{ 
+                width: '100%', 
+                height: '100%', 
+                borderRadius: '50%', 
+                objectFit: 'cover',
+                border: '1px solid #333',
+                position: 'relative',
+                zIndex: 1
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
