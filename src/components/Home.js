@@ -1,13 +1,14 @@
 import React from "react";
 import profileImage from "../assets/profile.jpg";
 import resume from "../assets/resume.pdf";
-import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 function Home() {
   return (
     <div className="container section" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
       <div className="grid-2" style={{ alignItems: 'center' }}>
         <div className="left-content">
+          
           <h1 className="h1">Building digital<br/>experiences.</h1>
           
           <p className="lead" style={{ marginBottom: '2.5rem' }}>
