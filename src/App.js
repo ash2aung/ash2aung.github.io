@@ -1,35 +1,29 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Import our components
 import Header from './components/Header';
-import About from './components/About';
-import Footer from './components/Footer';
 import Home from './components/Home';
+import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
-// Import styles
-import './styles/App.css';
+// We don't need these individual CSS files anymore if you put everything in index.css, 
+// but keeping them empty or minimal is fine.
+import './styles/App.css'; 
 
 function App() {
   return (
-    <Router>
-      <div className="app-container">
-        <Header />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <div className="app-container">
+      <Header />
+      <main>
+        <section id="home"><Home /></section>
+        <section id="about"><About /></section>
+        <section id="projects"><Projects /></section>
+        <section id="skills"><Skills /></section>
+        <section id="contact"><Contact /></section>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
