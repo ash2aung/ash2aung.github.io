@@ -16,7 +16,7 @@ function About() {
         </div>
 
         <h2>Education</h2>
-        <p>I graduated from <strong>Yorkville Secondary High School</strong> in 2023 and started my <strong>Software Systems</strong> major at SFU the same year. Currently, I'm in my <strong>second year</strong>, learning more about programming, software design, and problem-solving.</p>
+        <p>I graduated from <strong>Yorkville Secondary High School</strong> in 2023 and started my <strong>Software Systems</strong> major at SFU the same year. Currently, I'm in my <strong>third year</strong>, learning more about programming, software design, and problem-solving.</p>
 
         <h2>Hobbies & Interests</h2>
         <ul className="hobbies-list">

@@ -1,34 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Dark Theme + Teal Accent (#1abc9c) */
-  --background: 0 0% 4%;         /* Deep black background */
-  --foreground: 0 0% 75%;        /* Light grey text (no white) */
+  /* Vercel/Geist Dark Theme */
+  --background: 0 0% 0%;         /* Pure Black */
+  --foreground: 0 0% 93%;        /* #EDEDED */
   
-  --card: 0 0% 8%;               /* Slightly lighter black for cards */
-  --card-foreground: 0 0% 75%;
+  /* Subtle UI Elements */
+  --card: 0 0% 3%;               /* Almost black */
+  --card-foreground: 0 0% 93%;
+  --card-border: 0 0% 12%;       /* #1F1F1F - Crisp dark border */
   
-  --popover: 0 0% 8%;
-  --popover-foreground: 0 0% 75%;
+  --primary: 0 0% 100%;          /* White */
+  --primary-foreground: 0 0% 0%; /* Black text on white buttons */
   
-  --primary: 168 76% 42%;        /* #1abc9c (Teal) */
-  --primary-foreground: 0 0% 8%; /* Dark text on teal buttons */
+  --secondary: 0 0% 10%;         /* Dark Grey buttons */
+  --secondary-foreground: 0 0% 100%;
   
-  --secondary: 0 0% 12%;         /* Dark grey for secondary elements */
-  --secondary-foreground: 0 0% 70%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 55%;  /* #888888 - Classic muted text */
   
-  --muted: 0 0% 14%;
-  --muted-foreground: 0 0% 55%;  /* Muted grey text */
+  --accent: 0 0% 12%;            /* Hover state */
+  --accent-foreground: 0 0% 100%;
   
-  --accent: 0 0% 16%;            /* Hover state color */
-  --accent-foreground: 0 0% 75%;
-  
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 75%;
-  
-  --border: 0 0% 18%;            /* Dark borders */
-  --input: 0 0% 14%;
-  --ring: 168 76% 42%;           /* Teal focus ring */
+  --border: 0 0% 12%;            /* Global border color */
+  --ring: 0 0% 100%;             /* Focus ring */
   
   --radius: 0.5rem;
 }
@@ -40,52 +35,74 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   -webkit-font-smoothing: antialiased;
   line-height: 1.6;
+  letter-spacing: -0.015em; /* Premium feel tight tracking */
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 100px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  letter-spacing: -0.025em;
   margin-top: 0;
   color: hsl(var(--foreground));
+  letter-spacing: -0.04em; /* Very tight for headings */
 }
 
 /* --- Utility Classes --- */
 
-/* Typography */
-.h1 { font-size: 2.5rem; font-weight: 800; line-height: 1.2; }
-.h2 { 
-  font-size: 1.875rem; 
-  font-weight: 600; 
-  letter-spacing: -0.025em; 
-  border-bottom: 1px solid hsl(var(--border)); 
-  padding-bottom: 0.5rem; 
-  margin-bottom: 2rem; 
+/* Premium Typography */
+.h1 { 
+  font-size: 3.5rem; 
+  font-weight: 800; 
+  line-height: 1.1; 
+  background: linear-gradient(to bottom right, #fff 30%, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
 }
-.h3 { font-size: 1.5rem; font-weight: 600; }
-.lead { font-size: 1.25rem; color: hsl(var(--muted-foreground)); }
-.small { font-size: 0.875rem; font-weight: 500; }
+
+/* Mobile adjustment for H1 */
+@media (max-width: 768px) { .h1 { font-size: 2.5rem; } }
+
+.h2 { 
+  font-size: 1.75rem; 
+  font-weight: 600; 
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.h3 { font-size: 1.25rem; font-weight: 500; color: #fff; }
+
+.lead { 
+  font-size: 1.125rem; 
+  color: #888; 
+  max-width: 600px; 
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.small { font-size: 0.875rem; font-weight: 400; }
 .muted { color: hsl(var(--muted-foreground)); }
 
 /* Layout */
 .container {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
-.section { padding: 5rem 0; }
+.section { padding: 6rem 0; }
 .grid-2 { display: grid; grid-template-columns: 1fr; gap: 3rem; }
-@media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 768px) { 
+  .grid-2 { grid-template-columns: 1fr 1fr; gap: 5rem; } 
+}
 
 /* Components */
 .btn {
@@ -96,9 +113,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius);
   font-size: 0.875rem;
   font-weight: 500;
-  height: 2.5rem;
-  padding: 0 1rem;
-  transition: all 0.2s;
+  height: 2.75rem; /* Slightly taller */
+  padding: 0 1.25rem;
+  transition: all 0.2s ease;
   text-decoration: none;
   cursor: pointer;
   border: 1px solid transparent;
@@ -107,42 +124,55 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary {
   background-color: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
-  box-shadow: 0 0 10px rgba(26, 188, 156, 0.3); /* Subtle glow */
+  font-weight: 600;
 }
-.btn-primary:hover { opacity: 0.9; box-shadow: 0 0 20px rgba(26, 188, 156, 0.5); }
+.btn-primary:hover { 
+  background-color: #ccc; 
+}
 
 .btn-outline {
-  border-color: hsl(var(--input));
+  border: 1px solid #333;
   background-color: transparent;
   color: hsl(var(--foreground));
 }
-.btn-outline:hover { background-color: hsl(var(--accent)); color: hsl(var(--accent-foreground)); }
+.btn-outline:hover { 
+  border-color: #666;
+  background-color: transparent; 
+}
 
+/* Premium Card */
 .card {
   border-radius: var(--radius);
-  border: 1px solid hsl(var(--border));
+  border: 1px solid hsl(var(--card-border));
   background-color: hsl(var(--card));
-  color: hsl(var(--card-foreground));
   padding: 1.5rem;
-  transition: transform 0.2s ease-in-out, border-color 0.2s;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
-.card:hover { 
-  border-color: hsl(var(--primary)); /* Teal border on hover */
+
+.card:hover {
+  border-color: #444;
+  transform: translateY(-2px);
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
   border-radius: 9999px;
-  border: 1px solid transparent;
+  border: 1px solid #333;
   padding: 0.25rem 0.75rem;
   font-size: 0.75rem;
-  font-weight: 600;
-  transition: colors 0.2s;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  font-weight: 500;
+  background-color: #111;
+  color: #888;
 }
-.badge-secondary {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+
+/* Background Pattern */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, #1a1a1a 1px, transparent 1px),
+                    linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
 }
