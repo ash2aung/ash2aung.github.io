@@ -1,26 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Shadcn Zinc Theme Variables */
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 240 5.9% 10%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 240 10% 3.9%;
+  /* Dark Theme + Teal Accent (#1abc9c) */
+  --background: 0 0% 4%;         /* Deep black background */
+  --foreground: 0 0% 75%;        /* Light grey text (no white) */
+  
+  --card: 0 0% 8%;               /* Slightly lighter black for cards */
+  --card-foreground: 0 0% 75%;
+  
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 75%;
+  
+  --primary: 168 76% 42%;        /* #1abc9c (Teal) */
+  --primary-foreground: 0 0% 8%; /* Dark text on teal buttons */
+  
+  --secondary: 0 0% 12%;         /* Dark grey for secondary elements */
+  --secondary-foreground: 0 0% 70%;
+  
+  --muted: 0 0% 14%;
+  --muted-foreground: 0 0% 55%;  /* Muted grey text */
+  
+  --accent: 0 0% 16%;            /* Hover state color */
+  --accent-foreground: 0 0% 75%;
+  
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 75%;
+  
+  --border: 0 0% 18%;            /* Dark borders */
+  --input: 0 0% 14%;
+  --ring: 168 76% 42%;           /* Teal focus ring */
+  
   --radius: 0.5rem;
 }
 
@@ -35,25 +44,32 @@ body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   -webkit-font-smoothing: antialiased;
-  line-height: 1.5;
-  scroll-behavior: smooth;
+  line-height: 1.6;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Height of sticky header */
+  scroll-padding-top: 80px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.025em;
   margin-top: 0;
+  color: hsl(var(--foreground));
 }
 
-/* --- Shadcn-like Utility Classes --- */
+/* --- Utility Classes --- */
 
 /* Typography */
 .h1 { font-size: 2.5rem; font-weight: 800; line-height: 1.2; }
-.h2 { font-size: 1.875rem; font-weight: 600; letter-spacing: -0.025em; border-bottom: 1px solid hsl(var(--border)); padding-bottom: 0.5rem; margin-bottom: 2rem; }
+.h2 { 
+  font-size: 1.875rem; 
+  font-weight: 600; 
+  letter-spacing: -0.025em; 
+  border-bottom: 1px solid hsl(var(--border)); 
+  padding-bottom: 0.5rem; 
+  margin-bottom: 2rem; 
+}
 .h3 { font-size: 1.5rem; font-weight: 600; }
 .lead { font-size: 1.25rem; color: hsl(var(--muted-foreground)); }
 .small { font-size: 0.875rem; font-weight: 500; }
@@ -62,13 +78,13 @@ h1, h2, h3, h4, h5, h6 {
 /* Layout */
 .container {
   width: 100%;
-  max-width: 1000px; /* Tighter, more academic feel */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-.section { padding: 4rem 0; }
-.grid-2 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+.section { padding: 5rem 0; }
+.grid-2 { display: grid; grid-template-columns: 1fr; gap: 3rem; }
 @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
 
 /* Components */
@@ -91,8 +107,9 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary {
   background-color: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
+  box-shadow: 0 0 10px rgba(26, 188, 156, 0.3); /* Subtle glow */
 }
-.btn-primary:hover { opacity: 0.9; }
+.btn-primary:hover { opacity: 0.9; box-shadow: 0 0 20px rgba(26, 188, 156, 0.5); }
 
 .btn-outline {
   border-color: hsl(var(--input));
@@ -101,22 +118,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-outline:hover { background-color: hsl(var(--accent)); color: hsl(var(--accent-foreground)); }
 
-.btn-ghost {
-  background-color: transparent;
-  color: hsl(var(--foreground));
-}
-.btn-ghost:hover { background-color: hsl(var(--accent)); color: hsl(var(--accent-foreground)); }
-
 .card {
   border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
   background-color: hsl(var(--card));
   color: hsl(var(--card-foreground));
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   padding: 1.5rem;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+  transition: transform 0.2s ease-in-out, border-color 0.2s;
 }
-.card:hover { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+.card:hover { 
+  border-color: hsl(var(--primary)); /* Teal border on hover */
+}
 
 .badge {
   display: inline-flex;

@@ -1,19 +1,19 @@
 .projects {
   padding: 4rem 2rem;
-  background-color: #fafafa;
+  background-color: #080808;
   min-height: 100vh;
 }
 
 .projects-title {
   text-align: center;
   font-size: 2.5rem;
-  color: #333;
+  color: #a0a0a0;
   margin-bottom: 0.5rem;
 }
 
 .projects-subtitle {
   text-align: center;
-  color: #666;
+  color: #606060;
   font-size: 1.1rem;
   margin-bottom: 3rem;
 }
@@ -28,16 +28,18 @@
 }
 
 .project-card {
-  background: #fff;
+  background: #0e0e0e;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 1px solid #1a1a1a;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+  border-color: #1abc9c;
 }
 
 .project-image {
@@ -86,16 +88,18 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: #fff;
-  color: #333;
+  background: #1a1a1a;
+  color: #a0a0a0;
   text-decoration: none;
   border-radius: 20px;
   font-weight: 500;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .project-link:hover {
   transform: scale(1.05);
+  background: #1abc9c;
+  color: #0a0a0a;
 }
 
 .project-content {
@@ -104,7 +108,7 @@
 
 .project-title {
   font-size: 1.5rem;
-  color: #333;
+  color: #b0b0b0;
   margin-bottom: 0.5rem;
 }
 
@@ -112,7 +116,7 @@
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
-  color: #666;
+  color: #505050;
   font-size: 0.9rem;
 }
 
@@ -123,7 +127,7 @@
 }
 
 .project-description {
-  color: #555;
+  color: #707070;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -135,16 +139,17 @@
 }
 
 .tech-tag {
-  background: #f0f0f0;
-  color: #555;
+  background: #1a1a1a;
+  color: #808080;
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
   font-size: 0.85rem;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .tech-tag:hover {
-  background: #e0e0e0;
+  background: #1abc9c;
+  color: #0a0a0a;
 }
 
 @media (max-width: 768px) {
