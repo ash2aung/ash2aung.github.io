@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #fdfaf6;
+  background-color: #0a0a0a;
   padding: 2rem;
 }
 
@@ -63,7 +63,7 @@
 
 .divider {
   width: 100px;
-  border: 1px solid #000;
+  border: 1px solid #1abc9c;
   margin: 1.5rem 0;
 }
 
@@ -75,12 +75,12 @@
 .social-links a {
   text-decoration: none;
   font-weight: bold;
-  color: #333;
+  color: #707070;
   transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #007bff;
+  color: #1abc9c;
 }
 
 .name {
@@ -93,7 +93,7 @@
   font-size: 1.2rem;
   font-style: italic;
   margin: 0.5rem 0 0 0;
-  color: #666;
+  color: #505050;
 }
 
 .navigation-buttons {
@@ -104,20 +104,21 @@
 
 .nav-button {
   padding: 0.8rem 1.5rem;
-  background-color: #fff;
-  border: 2px solid #333;
+  background-color: #141414;
+  border: 2px solid #2a2a2a;
   border-radius: 30px;
   text-decoration: none;
-  color: #333;
+  color: #909090;
   font-weight: bold;
   transition: all 0.3s ease;
 }
 
 .nav-button:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+  color: #0a0a0a;
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(26, 188, 156, 0.2);
 }
 
 @media (max-width: 768px) {

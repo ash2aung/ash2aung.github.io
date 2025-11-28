@@ -1,15 +1,16 @@
 /* src/styles/Footer.css */
 .footer {
-  background-color: #fafafa;
+  background-color: #0a0a0a;
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid #1a1a1a;
 }
 
 .footer p {
-  color: #666;
+  color: #606060;
   font-size: 0.9rem;
 }
 
@@ -23,12 +24,12 @@
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: #666;
+  color: #606060;
   transition: color 0.3s ease;
 }
 
 .footer .social-links a:hover {
-  color: #007bff;
+  color: #1abc9c;
 }
 
 @media (max-width: 768px) {

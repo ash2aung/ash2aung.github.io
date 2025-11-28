@@ -1,50 +1,52 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "../styles/Home.css";
 import profileImage from "../assets/profile.jpg";
-import resume from "../assets/resume.pdf"; // Import the resume
+import resume from "../assets/resume.pdf";
+import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 
 function Home() {
   return (
-    <section className="home-container">
-      <div className="home-content">
+    <div className="container section">
+      <div className="grid-2" style={{ alignItems: 'center' }}>
         <div className="left-content">
-          <p className="intro-text">
-            Hi, I'm Ash. I'm a second year Software Systems student at Simon Fraser University. Welcome to my Portfolio!
+          <div className="badge badge-secondary" style={{ marginBottom: '1rem' }}>Available for work</div>
+          <h1 className="h1" style={{ marginBottom: '1rem' }}>Hi, I'm Ash.</h1>
+          <p className="lead" style={{ marginBottom: '2rem' }}>
+            I'm a second year Software Systems student at SFU, passionate about building modern, accessible web applications.
           </p>
-          <ul className="intro-list">
-            <li>
-              Learn more about me <Link to="/about" className="intro-button">Here</Link>
-            </li>
-            <li>
-              Here're some of my <Link to="/projects" className="intro-button">Projects</Link>
-            </li>
-            <li>
-              View my skills and experience <Link to="/skills" className="intro-button">Here</Link>
-            </li>
-            <li>
-              Here're my <Link to="/contact" className="intro-button">Contacts</Link>
-            </li>
-            <li>
-              Download my resume <a href={resume} className="intro-button" download>Here</a>
-            </li>
-          </ul>
-          <hr className="divider" />
-          <div className="social-links">
-            <a href="https://github.com/ash2aung" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/ash2aung" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="mailto:hwa201@sfu.ca">Email</a>
+          
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <a href="#projects" className="btn btn-primary">
+              View Work <ArrowRight size={16} style={{ marginLeft: '0.5rem' }}/>
+            </a>
+            <a href={resume} className="btn btn-outline" download>
+              Download CV
+            </a>
+          </div>
+
+          <div style={{ marginTop: '2.5rem', display: 'flex', gap: '1.5rem' }}>
+            <a href="https://github.com/ash2aung" target="_blank" rel="noreferrer" className="muted"><Github size={20} /></a>
+            <a href="https://linkedin.com/in/ash2aung" target="_blank" rel="noreferrer" className="muted"><Linkedin size={20} /></a>
+            <a href="mailto:hwa201@sfu.ca" className="muted"><Mail size={20} /></a>
           </div>
         </div>
-        <div className="profile-image-container">
-          <img src={profileImage} alt="Ash Aung" className="profile-image" />
-          <div className="name-container">
-            <h1 className="name">Htet Wai Yan Aung</h1>
-            <p className="nickname">(but most people call me Ash)</p>
-          </div>
+
+        <div className="profile-image-container" style={{ display: 'flex', justifyContent: 'center' }}>
+          <img 
+            src={profileImage} 
+            alt="Ash Aung" 
+            style={{ 
+              width: '280px', 
+              height: '280px', 
+              borderRadius: 'var(--radius)', 
+              objectFit: 'cover',
+              border: '1px solid hsl(var(--border))',
+              padding: '0.5rem',
+              backgroundColor: 'hsl(var(--card))'
+            }} 
+          />
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
