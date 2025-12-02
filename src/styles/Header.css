@@ -23,7 +23,7 @@
 
 .logo {
   text-decoration: none;
-  color: #b0b0b0;
+  color: #f5f0e8;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -45,7 +45,7 @@
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #808080;
+  color: #a89f94;
   transition: color 0.3s ease;
 }
 

@@ -12,7 +12,7 @@
 
 .skills-title {
   font-size: 2.5rem;
-  color: #a0a0a0;
+  color: #f5f0e8;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
 }
 
 .skills-subtitle {
-  color: #606060;
+  color: #8a8178;
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto;
@@ -73,12 +73,12 @@
 
 .category-header h2 {
   font-size: 1.3rem;
-  color: #a0a0a0;
+  color: #f5f0e8;
   margin: 0;
 }
 
 .category-description {
-  color: #606060;
+  color: #8a8178;
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
 }
@@ -103,12 +103,12 @@
 
 .skill-name {
   font-weight: 500;
-  color: #909090;
+  color: #e8e4dc;
 }
 
 .skill-level {
   font-size: 0.85rem;
-  color: #505050;
+  color: #8a8178;
 }
 
 .skill-bar-container {
@@ -131,7 +131,7 @@
   right: 0;
   top: -20px;
   font-size: 0.75rem;
-  color: #606060;
+  color: #8a8178;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -149,7 +149,7 @@
 
 .experience-title {
   font-size: 1.75rem;
-  color: #a0a0a0;
+  color: #f5f0e8;
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
@@ -162,7 +162,7 @@
 
 .experience-category h3 {
   font-size: 1.3rem;
-  color: #909090;
+  color: #e8e4dc;
   margin-bottom: 1rem;
 }
 
@@ -187,17 +187,17 @@
 
 .experience-role {
   font-size: 1.1rem;
-  color: #909090;
+  color: #e8e4dc;
   font-weight: 500;
 }
 
 .experience-org {
-  color: #606060;
+  color: #a89f94;
   font-size: 1rem;
 }
 
 .experience-period {
-  color: #505050;
+  color: #8a8178;
   font-size: 0.9rem;
 }
 

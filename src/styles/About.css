@@ -35,7 +35,7 @@
 }
 
 .image-caption {
-  color: #505050;
+  color: #8a8178;
   font-size: 0.95rem;
   font-style: italic;
   text-align: center;
@@ -54,17 +54,17 @@
 }
 
 .about-intro h1 {
-  color: #c0c0c0;
+  color: #f5f0e8;
   margin-bottom: 1.5rem;
   font-size: 2.2rem;
   font-weight: 700;
-  background: linear-gradient(45deg, #909090, #1abc9c);
+  background: linear-gradient(45deg, #e8e4dc, #1abc9c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .about-container h2 {
-  color: #a0a0a0;
+  color: #f5f0e8;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   font-size: 1.6rem;
@@ -72,7 +72,7 @@
 }
 
 .about-container p {
-  color: #707070;
+  color: #a89f94;
   line-height: 1.8;
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
@@ -85,7 +85,7 @@
 
 .hobbies-list li {
   font-size: 1.1rem;
-  color: #707070;
+  color: #a89f94;
   margin-bottom: 1.2rem;
   display: flex;
   align-items: center;
@@ -100,7 +100,7 @@
 }
 
 .hobbies-list li strong {
-  color: #909090;
+  color: #e8e4dc;
   font-weight: 600;
 }
 

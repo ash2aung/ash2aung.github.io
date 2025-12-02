@@ -1,29 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Vercel/Geist Dark Theme */
+  /* Warm Cream Dark Theme */
   --background: 0 0% 0%;         /* Pure Black */
-  --foreground: 0 0% 93%;        /* #EDEDED */
+  --foreground: 35 25% 94%;      /* #f5f0e8 - Warm Cream */
   
   /* Subtle UI Elements */
   --card: 0 0% 3%;               /* Almost black */
-  --card-foreground: 0 0% 93%;
+  --card-foreground: 35 25% 94%;
   --card-border: 0 0% 12%;       /* #1F1F1F - Crisp dark border */
   
-  --primary: 0 0% 100%;          /* White */
-  --primary-foreground: 0 0% 0%; /* Black text on white buttons */
+  --primary: 35 25% 94%;         /* Warm Cream */
+  --primary-foreground: 0 0% 0%; /* Black text on cream buttons */
   
   --secondary: 0 0% 10%;         /* Dark Grey buttons */
-  --secondary-foreground: 0 0% 100%;
+  --secondary-foreground: 35 25% 94%;
   
   --muted: 0 0% 10%;
-  --muted-foreground: 0 0% 55%;  /* #888888 - Classic muted text */
+  --muted-foreground: 30 8% 62%; /* #a89f94 - Warm Grey */
   
   --accent: 0 0% 12%;            /* Hover state */
-  --accent-foreground: 0 0% 100%;
+  --accent-foreground: 35 25% 94%;
   
   --border: 0 0% 12%;            /* Global border color */
-  --ring: 0 0% 100%;             /* Focus ring */
+  --ring: 35 25% 94%;            /* Focus ring */
   
   --radius: 0.5rem;
 }
@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3.5rem; 
   font-weight: 800; 
   line-height: 1.1; 
-  background: linear-gradient(to bottom right, #fff 30%, #888);
+  background: linear-gradient(to bottom right, #f5f0e8 30%, #a89f94);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
@@ -77,11 +77,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.5rem;
 }
 
-.h3 { font-size: 1.25rem; font-weight: 500; color: #fff; }
+.h3 { font-size: 1.25rem; font-weight: 500; color: #f5f0e8; }
 
 .lead { 
   font-size: 1.125rem; 
-  color: #888; 
+  color: #a89f94; 
   max-width: 600px; 
   line-height: 1.7;
   font-weight: 400;
@@ -165,7 +165,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.75rem;
   font-weight: 500;
   background-color: #111;
-  color: #888;
+  color: #a89f94;
 }
 
 /* Background Pattern */
