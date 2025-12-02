@@ -9,10 +9,10 @@ function Home() {
       <div className="grid-2" style={{ alignItems: 'center' }}>
         <div className="left-content">
           
-          <h1 className="h1">Building digital<br/>experiences.</h1>
+          <h1 className="h1">Ash Aung</h1>
           
           <p className="lead" style={{ marginBottom: '2.5rem' }}>
-            I'm Ash, a Software Systems student at SFU. I build accessible, pixel-perfect, and performant web applications.
+            Hi, I'm Ash, a Software Systems student at SFU. I enjoy building niche websites and tools that solve problems I personally care about.
           </p>
           
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>

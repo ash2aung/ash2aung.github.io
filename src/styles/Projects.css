@@ -7,13 +7,13 @@
 .projects-title {
   text-align: center;
   font-size: 2.5rem;
-  color: #f5f0e8;
+  color: #e0e6ed;
   margin-bottom: 0.5rem;
 }
 
 .projects-subtitle {
   text-align: center;
-  color: #8a8178;
+  color: #6b7d8f;
   font-size: 1.1rem;
   margin-bottom: 3rem;
 }
@@ -89,7 +89,7 @@
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   background: #1a1a1a;
-  color: #e8e4dc;
+  color: #cdd5de;
   text-decoration: none;
   border-radius: 20px;
   font-weight: 500;
@@ -108,7 +108,7 @@
 
 .project-title {
   font-size: 1.5rem;
-  color: #f5f0e8;
+  color: #e0e6ed;
   margin-bottom: 0.5rem;
 }
 
@@ -116,7 +116,7 @@
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
-  color: #8a8178;
+  color: #6b7d8f;
   font-size: 0.9rem;
 }
 
@@ -127,7 +127,7 @@
 }
 
 .project-description {
-  color: #a89f94;
+  color: #8a9bab;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -140,7 +140,7 @@
 
 .tech-tag {
   background: #1a1a1a;
-  color: #a89f94;
+  color: #8a9bab;
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
   font-size: 0.85rem;

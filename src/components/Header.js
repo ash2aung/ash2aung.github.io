@@ -40,13 +40,13 @@ function Header() {
               href={`#${item.toLowerCase()}`} 
               style={{ 
                 textDecoration: 'none', 
-                color: '#888', 
+                color: '#8a9bab', 
                 fontSize: '0.9rem', 
                 fontWeight: '500', 
                 transition: 'color 0.2s' 
               }}
               onMouseOver={(e) => e.target.style.color = '#fff'}
-              onMouseOut={(e) => e.target.style.color = '#888'}
+              onMouseOut={(e) => e.target.style.color = '#8a9bab'}
             >
               {item}
             </a>

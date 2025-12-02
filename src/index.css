@@ -1,29 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Warm Cream Dark Theme */
+  /* Cool Blue-Grey Dark Theme */
   --background: 0 0% 0%;         /* Pure Black */
-  --foreground: 35 25% 94%;      /* #f5f0e8 - Warm Cream */
+  --foreground: 210 20% 93%;     /* #e0e6ed - Pale Blue-Grey */
   
   /* Subtle UI Elements */
   --card: 0 0% 3%;               /* Almost black */
-  --card-foreground: 35 25% 94%;
+  --card-foreground: 210 20% 93%;
   --card-border: 0 0% 12%;       /* #1F1F1F - Crisp dark border */
   
-  --primary: 35 25% 94%;         /* Warm Cream */
-  --primary-foreground: 0 0% 0%; /* Black text on cream buttons */
+  --primary: 210 20% 93%;        /* Pale Blue-Grey */
+  --primary-foreground: 0 0% 0%; /* Black text on light buttons */
   
   --secondary: 0 0% 10%;         /* Dark Grey buttons */
-  --secondary-foreground: 35 25% 94%;
+  --secondary-foreground: 210 20% 93%;
   
   --muted: 0 0% 10%;
-  --muted-foreground: 30 8% 62%; /* #a89f94 - Warm Grey */
+  --muted-foreground: 210 15% 60%; /* #8a9bab - Steel Blue */
   
   --accent: 0 0% 12%;            /* Hover state */
-  --accent-foreground: 35 25% 94%;
+  --accent-foreground: 210 20% 93%;
   
   --border: 0 0% 12%;            /* Global border color */
-  --ring: 35 25% 94%;            /* Focus ring */
+  --ring: 210 20% 93%;           /* Focus ring */
   
   --radius: 0.5rem;
 }
@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3.5rem; 
   font-weight: 800; 
   line-height: 1.1; 
-  background: linear-gradient(to bottom right, #f5f0e8 30%, #a89f94);
+  background: linear-gradient(to bottom right, #e0e6ed 30%, #8a9bab);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
@@ -77,11 +77,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.5rem;
 }
 
-.h3 { font-size: 1.25rem; font-weight: 500; color: #f5f0e8; }
+.h3 { font-size: 1.25rem; font-weight: 500; color: #e0e6ed; }
 
 .lead { 
   font-size: 1.125rem; 
-  color: #a89f94; 
+  color: #8a9bab; 
   max-width: 600px; 
   line-height: 1.7;
   font-weight: 400;
@@ -165,7 +165,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.75rem;
   font-weight: 500;
   background-color: #111;
-  color: #a89f94;
+  color: #8a9bab;
 }
 
 /* Background Pattern */

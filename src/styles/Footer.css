@@ -10,7 +10,7 @@
 }
 
 .footer p {
-  color: #8a8178;
+  color: #6b7d8f;
   font-size: 0.9rem;
 }
 
@@ -24,7 +24,7 @@
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: #8a8178;
+  color: #6b7d8f;
   transition: color 0.3s ease;
 }
 
