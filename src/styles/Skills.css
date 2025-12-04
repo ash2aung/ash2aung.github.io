@@ -1,8 +1,7 @@
 /* Existing Skills Section */
 .skills {
-  padding: 4rem 2rem;
+  padding: 8rem 2rem;
   background-color: #080808;
-  min-height: 100vh;
 }
 
 .skills-header {
@@ -69,6 +68,7 @@
   background: #1abc9c;
   border-radius: 8px;
   color: #0a0a0a;
+  flex-shrink: 0;
 }
 
 .category-header h2 {
@@ -199,11 +199,51 @@
 .experience-period {
   color: #6b7d8f;
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Large monitors */
+@media (min-width: 1280px) {
+  .skills {
+    padding: 6rem 3rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+/* Tablets landscape */
+@media (max-width: 1023px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets portrait */
+@media (max-width: 900px) {
+  .skills {
+    padding: 4.5rem 1.5rem;
+  }
+  
+  .skills-title {
+    font-size: 2.25rem;
+  }
+  
+  .skills-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Large phones */
 @media (max-width: 768px) {
   .skills {
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
   }
 
   .skills-title {
@@ -220,6 +260,41 @@
   }
 
   .experience-period {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 479px) {
+  .skills {
+    padding: 3.5rem 0.875rem;
+  }
+  
+  .skills-title {
+    font-size: 1.75rem;
+  }
+  
+  .skills-subtitle {
+    font-size: 1rem;
+  }
+  
+  .skill-category {
+    padding: 1.25rem;
+  }
+  
+  .category-header h2 {
+    font-size: 1.15rem;
+  }
+  
+  .experience-title {
+    font-size: 1.5rem;
+  }
+  
+  .experience-role {
+    font-size: 1rem;
+  }
+  
+  .experience-org {
     font-size: 0.9rem;
   }
 }

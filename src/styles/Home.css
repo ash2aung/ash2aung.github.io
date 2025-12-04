@@ -1,6 +1,6 @@
 .home {
-    text-align: center;
-    padding: 3rem;
+  text-align: center;
+  padding: 3rem;
 }
 
 .home-container {
@@ -121,15 +121,50 @@
   box-shadow: 0 4px 6px rgba(26, 188, 156, 0.2);
 }
 
-@media (max-width: 768px) {
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Large monitors */
+@media (min-width: 1280px) {
+  .profile-image {
+    width: 340px;
+    height: 340px;
+  }
+  
+  .left-content {
+    padding-right: 3rem;
+  }
+}
+
+/* Tablets landscape / Small laptops */
+@media (max-width: 1023px) {
+  .profile-image {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .left-content {
+    padding-right: 1.5rem;
+  }
+}
+
+/* Tablets portrait */
+@media (max-width: 900px) {
   .home-content {
     flex-direction: column;
     text-align: center;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   .left-content {
     padding-right: 0;
+    text-align: center;
+    order: 2;
+  }
+  
+  .profile-image-container {
+    order: 1;
   }
 
   .social-links {
@@ -137,7 +172,70 @@
   }
 
   .navigation-buttons {
-    flex-wrap: wrap;
     justify-content: center;
+  }
+  
+  .profile-image {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+/* Large phones */
+@media (max-width: 639px) {
+  .home {
+    padding: 2rem 1rem;
+  }
+  
+  .home-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .navigation-buttons {
+    flex-wrap: wrap;
+  }
+  
+  .nav-button {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 479px) {
+  .home {
+    padding: 1.5rem 0.875rem;
+  }
+  
+  .home-container {
+    padding: 1rem 0.875rem;
+    min-height: auto;
+  }
+  
+  .profile-image {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .intro-text {
+    font-size: 1rem;
+  }
+  
+  .navigation-buttons {
+    gap: 0.75rem;
+  }
+  
+  .nav-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .social-links {
+    gap: 0.75rem;
   }
 }

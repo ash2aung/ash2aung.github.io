@@ -2,9 +2,9 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer style={{ borderTop: '1px solid #222', padding: '3rem 0', marginTop: '4rem' }}>
+    <footer style={{ borderTop: '1px solid #222', padding: '1.25rem 0' }}>
       <div className="container" style={{ textAlign: 'center' }}>
-        <p className="muted small">
+        <p className="muted small" style={{ margin: 0 }}>
           © {new Date().getFullYear()} Ash Aung. Built with React.
         </p>
       </div>
