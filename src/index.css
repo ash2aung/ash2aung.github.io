@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Cool Blue-Grey Dark Theme */
+  /* Cool Blue-Grey Dark Theme (Default) */
   --background: 0 0% 0%;         /* Pure Black */
   --foreground: 210 20% 93%;     /* #e0e6ed - Pale Blue-Grey */
   
@@ -25,7 +25,46 @@
   --border: 0 0% 12%;            /* Global border color */
   --ring: 210 20% 93%;           /* Focus ring */
   
+  /* Additional theme-specific colors */
+  --section-bg: 0 0% 3%;         /* Section backgrounds */
+  --hover-accent: 172 66% 50%;   /* #1abc9c - Teal accent */
+  --text-muted: 210 15% 60%;     /* Muted text */
+  --text-subtle: 210 20% 40%;    /* Subtle text */
+  
   --radius: 0.5rem;
+}
+
+/* Light Mode Theme */
+[data-theme="light"] {
+  /* Clean Minimalistic Light Theme */
+  --background: 0 0% 100%;       /* Pure White */
+  --foreground: 210 20% 15%;     /* Dark Blue-Grey */
+  
+  /* Subtle UI Elements */
+  --card: 0 0% 98%;              /* Off-white */
+  --card-foreground: 210 20% 15%;
+  --card-border: 0 0% 90%;       /* Light grey border */
+  
+  --primary: 210 20% 15%;        /* Dark Blue-Grey */
+  --primary-foreground: 0 0% 100%; /* White text on dark buttons */
+  
+  --secondary: 0 0% 96%;         /* Very light grey buttons */
+  --secondary-foreground: 210 20% 15%;
+  
+  --muted: 0 0% 96%;
+  --muted-foreground: 210 15% 45%; /* Medium Blue-Grey */
+  
+  --accent: 0 0% 94%;            /* Hover state */
+  --accent-foreground: 210 20% 15%;
+  
+  --border: 0 0% 90%;            /* Light grey border */
+  --ring: 210 20% 15%;           /* Focus ring */
+  
+  /* Additional theme-specific colors for light mode */
+  --section-bg: 0 0% 98%;        /* Light section backgrounds */
+  --hover-accent: 172 66% 45%;   /* Slightly darker teal */
+  --text-muted: 210 15% 45%;     /* Medium muted text */
+  --text-subtle: 210 20% 60%;    /* Subtle text */
 }
 
 * {
@@ -61,7 +100,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3.5rem; 
   font-weight: 800; 
   line-height: 1.1; 
-  background: linear-gradient(to bottom right, #e0e6ed 30%, #8a9bab);
+  background: linear-gradient(to bottom right, hsl(var(--foreground)) 30%, hsl(var(--text-muted)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
@@ -77,11 +116,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.5rem;
 }
 
-.h3 { font-size: 1.25rem; font-weight: 500; color: #e0e6ed; }
+.h3 { font-size: 1.25rem; font-weight: 500; color: hsl(var(--foreground)); }
 
 .lead { 
   font-size: 1.125rem; 
-  color: #8a9bab; 
+  color: hsl(var(--text-muted)); 
   max-width: 600px; 
   line-height: 1.7;
   font-weight: 400;
@@ -131,12 +170,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline {
-  border: 1px solid #333;
+  border: 1px solid hsl(var(--border));
   background-color: transparent;
   color: hsl(var(--foreground));
 }
 .btn-outline:hover { 
-  border-color: #666;
+  border-color: hsl(var(--muted-foreground));
   background-color: transparent; 
 }
 
@@ -152,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card:hover {
-  border-color: #444;
+  border-color: hsl(var(--muted-foreground));
   transform: translateY(-2px);
 }
 
@@ -160,21 +199,26 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   border-radius: 9999px;
-  border: 1px solid #333;
+  border: 1px solid hsl(var(--border));
   padding: 0.25rem 0.75rem;
   font-size: 0.75rem;
   font-weight: 500;
-  background-color: #111;
-  color: #8a9bab;
+  background-color: hsl(var(--muted));
+  color: hsl(var(--text-muted));
 }
 
 /* Background Pattern */
 .bg-grid {
   background-size: 40px 40px;
-  background-image: linear-gradient(to right, #1a1a1a 1px, transparent 1px),
-                    linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+  background-image: linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+                    linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
   mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  opacity: 0.3;
+}
+
+[data-theme="light"] .bg-grid {
+  opacity: 0.15;
 }
 
 /* Toast Animation */

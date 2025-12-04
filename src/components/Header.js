@@ -1,4 +1,5 @@
 import React from "react";
+import ThemeToggle from "./ThemeToggle";
 
 function Header() {
   return (
@@ -6,8 +7,8 @@ function Header() {
       position: 'sticky', 
       top: 0, 
       zIndex: 50, 
-      borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+      borderBottom: '1px solid hsl(var(--border))',
+      backgroundColor: 'hsl(var(--background) / 0.6)',
       backdropFilter: 'blur(12px)',
       WebkitBackdropFilter: 'blur(12px)'
     }}>
@@ -25,14 +26,14 @@ function Header() {
         <a href="#home" className="logo" style={{ 
           fontSize: '1.1rem', 
           fontWeight: '700', 
-          color: '#fff', 
+          color: 'hsl(var(--foreground))', 
           textDecoration: 'none', 
           letterSpacing: '-0.02em'
         }}>
           Ash Aung
         </a>
 
-        {/* Nav Links + Contact (Right) */}
+        {/* Nav Links + Contact + Theme Toggle (Right) */}
         <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           {['About', 'Projects', 'Skills', 'Experience'].map((item) => (
             <a 
@@ -40,13 +41,13 @@ function Header() {
               href={`#${item.toLowerCase()}`} 
               style={{ 
                 textDecoration: 'none', 
-                color: '#8a9bab', 
+                color: 'hsl(var(--text-muted))', 
                 fontSize: '0.9rem', 
                 fontWeight: '500', 
                 transition: 'color 0.2s' 
               }}
-              onMouseOver={(e) => e.target.style.color = '#fff'}
-              onMouseOut={(e) => e.target.style.color = '#8a9bab'}
+              onMouseOver={(e) => e.target.style.color = 'hsl(var(--foreground))'}
+              onMouseOut={(e) => e.target.style.color = 'hsl(var(--text-muted))'}
             >
               {item}
             </a>
@@ -57,10 +58,10 @@ function Header() {
             style={{ 
               textDecoration: 'none',
               backgroundColor: 'transparent',
-              color: '#e0e6ed',
+              color: 'hsl(var(--foreground))',
               padding: '0.5rem 1rem',
               borderRadius: 'var(--radius, 0.5rem)',
-              border: '1px solid #333',
+              border: '1px solid hsl(var(--border))',
               fontSize: '0.85rem',
               fontWeight: '500',
               transition: 'all 0.2s ease',
@@ -68,18 +69,20 @@ function Header() {
               marginLeft: '0.5rem'
             }}
             onMouseOver={(e) => {
-              e.target.style.borderColor = '#666';
-              e.target.style.color = '#fff';
+              e.target.style.borderColor = 'hsl(var(--muted-foreground))';
+              e.target.style.color = 'hsl(var(--foreground))';
               e.target.style.transform = 'translateY(-2px)';
             }}
             onMouseOut={(e) => {
-              e.target.style.borderColor = '#333';
-              e.target.style.color = '#e0e6ed';
+              e.target.style.borderColor = 'hsl(var(--border))';
+              e.target.style.color = 'hsl(var(--foreground))';
               e.target.style.transform = 'translateY(0)';
             }}
           >
             Contact
           </a>
+          
+          <ThemeToggle />
         </div>
         
       </nav>

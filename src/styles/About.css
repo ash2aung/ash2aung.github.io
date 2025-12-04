@@ -27,7 +27,7 @@
   line-height: 1.1;
   letter-spacing: -0.04em;
   margin-bottom: 1.5rem;
-  background: linear-gradient(to bottom right, #e0e6ed 30%, #8a9bab);
+  background: linear-gradient(to bottom right, hsl(var(--foreground)) 30%, hsl(var(--text-muted)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -36,13 +36,13 @@
 .about-text p {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: #8a9bab;
+  color: hsl(var(--text-muted));
   max-width: 500px;
 }
 
 .about-text p strong {
   font-weight: 700;
-  background: linear-gradient(to bottom right, #e0e6ed 30%, #8a9bab);
+  background: linear-gradient(to bottom right, hsl(var(--foreground)) 30%, hsl(var(--text-muted)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -51,7 +51,7 @@
 .about-text p em {
   font-style: normal;
   font-weight: 700;
-  background: linear-gradient(to bottom right, #e0e6ed 30%, #8a9bab);
+  background: linear-gradient(to bottom right, hsl(var(--foreground)) 30%, hsl(var(--text-muted)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -59,7 +59,7 @@
 
 .about-hint {
   font-size: 0.875rem !important;
-  color: #666 !important;
+  color: hsl(var(--text-subtle)) !important;
   margin-top: 2rem !important;
 }
 
@@ -132,8 +132,8 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   border-radius: var(--radius, 0.5rem);
-  border: 1px solid #333;
-  background: #0a0a0a;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -154,7 +154,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #111;
+  background: hsl(var(--muted));
   overflow: hidden;
 }
 
@@ -184,14 +184,14 @@
 .card-info h3 {
   font-size: 1rem;
   font-weight: 600;
-  color: #e0e6ed;
+  color: hsl(var(--foreground));
   margin: 0 0 0.25rem 0;
   letter-spacing: -0.02em;
 }
 
 .card-info p {
   font-size: 0.8rem;
-  color: #666;
+  color: hsl(var(--text-subtle));
   margin: 0;
   line-height: 1.4;
 }
@@ -207,7 +207,7 @@
 
 .orbit-card.selected .card-info p {
   font-size: 0.9rem;
-  color: #8a9bab;
+  color: hsl(var(--text-muted));
 }
 
 /* Card Back Content */
@@ -217,7 +217,7 @@
 
 .fun-fact {
   font-size: 0.875rem;
-  color: #8a9bab;
+  color: hsl(var(--text-muted));
   line-height: 1.6;
   margin: 0;
 }
@@ -225,7 +225,7 @@
 /* Flip Hint */
 .flip-hint {
   font-size: 0.65rem;
-  color: #444;
+  color: hsl(var(--text-subtle));
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 0.5rem;

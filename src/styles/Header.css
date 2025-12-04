@@ -1,15 +1,21 @@
 /* src/styles/Header.css */
 .header {
-  background-color: #0a0a0a;
+  background-color: hsl(var(--background) / 0.6);
   padding: 1rem 2rem;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #1a1a1a;
+  border-bottom: 1px solid hsl(var(--border));
   position: sticky;
   top: 0;
   z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-theme="light"] .header {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .nav {
@@ -28,7 +34,7 @@
 
 .logo {
   text-decoration: none;
-  color: #e0e6ed;
+  color: hsl(var(--foreground));
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -49,13 +55,13 @@
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
-  color: #8a9bab;
+  color: hsl(var(--text-muted));
   transition: color 0.3s ease;
   padding: 0.5rem 0;
 }
 
 .nav-links a:hover {
-  color: #e0e6ed;
+  color: hsl(var(--foreground));
 }
 
 .favicon {
@@ -69,7 +75,7 @@
   display: none;
   background: none;
   border: none;
-  color: #e0e6ed;
+  color: hsl(var(--foreground));
   cursor: pointer;
   padding: 0.5rem;
 }

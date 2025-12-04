@@ -18,7 +18,7 @@ const projects = [
     desc: 'Real-time reporting system tracking emergencies with live mapping.',
     tags: ['TypeScript', 'Leaflet', 'HTML/CSS'],
     github: 'https://github.com/dagemd/272-FInal-project',
-    demo: null,
+    demo: 'https://em3rgency-reporter.vercel.app/',
     image: emergencyReporterImage
   },
   {

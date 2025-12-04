@@ -22,14 +22,14 @@ function Home() {
           top: '100px',
           left: '50%',
           transform: 'translateX(-50%)',
-          backgroundColor: '#111',
-          border: '1px solid #333',
-          color: '#e0e6ed',
+          backgroundColor: 'hsl(var(--card))',
+          border: '1px solid hsl(var(--border))',
+          color: 'hsl(var(--foreground))',
           padding: '1rem 1.5rem',
           borderRadius: 'var(--radius)',
           zIndex: 1000,
           animation: 'fadeIn 0.3s ease',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)'
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)'
         }}>
           Email copied to clipboard!
         </div>
@@ -57,9 +57,9 @@ function Home() {
               href="https://github.com/ash2aung"
               target="_blank" 
               rel="noreferrer" 
-              style={{ color: '#666', transition: 'color 0.2s' }}
-              onMouseOver={(e) => e.currentTarget.style.color = '#fff'}
-              onMouseOut={(e) => e.currentTarget.style.color = '#666'}
+              style={{ color: 'hsl(var(--text-subtle))', transition: 'color 0.2s' }}
+              onMouseOver={(e) => e.currentTarget.style.color = 'hsl(var(--hover-accent))'}
+              onMouseOut={(e) => e.currentTarget.style.color = 'hsl(var(--text-subtle))'}
             >
               <Github size={20} />
             </a>
@@ -67,9 +67,9 @@ function Home() {
               href="https://linkedin.com/in/ash2aung"
               target="_blank" 
               rel="noreferrer" 
-              style={{ color: '#666', transition: 'color 0.2s' }}
-              onMouseOver={(e) => e.currentTarget.style.color = '#fff'}
-              onMouseOut={(e) => e.currentTarget.style.color = '#666'}
+              style={{ color: 'hsl(var(--text-subtle))', transition: 'color 0.2s' }}
+              onMouseOver={(e) => e.currentTarget.style.color = 'hsl(var(--hover-accent))'}
+              onMouseOut={(e) => e.currentTarget.style.color = 'hsl(var(--text-subtle))'}
             >
               <Linkedin size={20} />
             </a>
@@ -80,13 +80,13 @@ function Home() {
                 border: 'none', 
                 padding: 0,
                 cursor: 'pointer',
-                color: '#666', 
+                color: 'hsl(var(--text-subtle))', 
                 transition: 'color 0.2s',
                 display: 'flex',
                 alignItems: 'center'
               }}
-              onMouseOver={(e) => e.currentTarget.style.color = '#fff'}
-              onMouseOut={(e) => e.currentTarget.style.color = '#666'}
+              onMouseOver={(e) => e.currentTarget.style.color = 'hsl(var(--hover-accent))'}
+              onMouseOut={(e) => e.currentTarget.style.color = 'hsl(var(--text-subtle))'}
             >
               <Mail size={20} />
             </button>
@@ -103,7 +103,7 @@ function Home() {
             <div style={{
               position: 'absolute',
               inset: '-20px',
-              background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%)',
+              background: 'radial-gradient(circle, hsl(var(--foreground) / 0.1) 0%, transparent 70%)',
               borderRadius: '50%',
               zIndex: 0
             }} />
@@ -115,7 +115,7 @@ function Home() {
                 height: '100%', 
                 borderRadius: '50%', 
                 objectFit: 'cover',
-                border: '1px solid #333',
+                border: '1px solid hsl(var(--border))',
                 position: 'relative',
                 zIndex: 1
               }}

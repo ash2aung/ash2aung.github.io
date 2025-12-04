@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #0a0a0a;
+  background-color: hsl(var(--background));
   padding: 2rem;
 }
 
@@ -63,7 +63,7 @@
 
 .divider {
   width: 100px;
-  border: 1px solid #1abc9c;
+  border: 1px solid hsl(var(--hover-accent));
   margin: 1.5rem 0;
 }
 
@@ -75,12 +75,12 @@
 .social-links a {
   text-decoration: none;
   font-weight: bold;
-  color: #707070;
+  color: hsl(var(--text-subtle));
   transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #1abc9c;
+  color: hsl(var(--hover-accent));
 }
 
 .name {
@@ -93,7 +93,7 @@
   font-size: 1.2rem;
   font-style: italic;
   margin: 0.5rem 0 0 0;
-  color: #505050;
+  color: hsl(var(--text-subtle));
 }
 
 .navigation-buttons {
@@ -104,21 +104,21 @@
 
 .nav-button {
   padding: 0.8rem 1.5rem;
-  background-color: #141414;
-  border: 2px solid #2a2a2a;
+  background-color: hsl(var(--muted));
+  border: 2px solid hsl(var(--border));
   border-radius: 30px;
   text-decoration: none;
-  color: #909090;
+  color: hsl(var(--text-muted));
   font-weight: bold;
   transition: all 0.3s ease;
 }
 
 .nav-button:hover {
-  background-color: #1abc9c;
-  border-color: #1abc9c;
-  color: #0a0a0a;
+  background-color: hsl(var(--hover-accent));
+  border-color: hsl(var(--hover-accent));
+  color: hsl(var(--background));
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(26, 188, 156, 0.2);
+  box-shadow: 0 4px 6px hsl(var(--hover-accent) / 0.2);
 }
 
 /* ========================================

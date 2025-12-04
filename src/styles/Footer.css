@@ -1,16 +1,20 @@
 /* src/styles/Footer.css */
 .footer {
-  background-color: #0a0a0a;
+  background-color: hsl(var(--background));
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
-  border-top: 1px solid #1a1a1a;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid hsl(var(--border));
+}
+
+[data-theme="light"] .footer {
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .footer p {
-  color: #6b7d8f;
+  color: hsl(var(--text-subtle));
   font-size: 0.9rem;
 }
 
@@ -24,12 +28,12 @@
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: #6b7d8f;
+  color: hsl(var(--text-subtle));
   transition: color 0.3s ease;
 }
 
 .footer .social-links a:hover {
-  color: #1abc9c;
+  color: hsl(var(--hover-accent));
 }
 
 /* ========================================
