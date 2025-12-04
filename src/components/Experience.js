@@ -71,14 +71,16 @@ function Experience() {
                     <span className="experience-org">{exp.organization}</span>
                     <p className="experience-summary">{exp.summary}</p>
                   </div>
-                  <ChevronDown 
-                    className={`expand-icon ${isExpanded ? 'rotated' : ''}`} 
-                    size={20} 
-                  />
+                  <div className="experience-card-right">
+                    <span className="experience-duration">{exp.duration}</span>
+                    <ChevronDown 
+                      className={`expand-icon ${isExpanded ? 'rotated' : ''}`} 
+                      size={20} 
+                    />
+                  </div>
                 </div>
                 
                 <div className={`experience-card-details ${isExpanded ? 'show' : ''}`}>
-                  <span className="experience-duration">{exp.duration}</span>
                   <ul>
                     {exp.details.map((detail, index) => (
                       <li key={index}>{detail}</li>

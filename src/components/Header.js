@@ -34,7 +34,7 @@ function Header() {
 
         {/* Nav Links + Contact (Right) */}
         <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          {['About', 'Projects', 'Skills'].map((item) => (
+          {['About', 'Projects', 'Skills', 'Experience'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`} 
