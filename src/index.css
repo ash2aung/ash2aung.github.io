@@ -209,16 +209,36 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Background Pattern */
 .bg-grid {
-  background-size: 40px 40px;
-  background-image: linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
-                    linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
-  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-  opacity: 0.3;
+  background-size: 50px 50px;
+  background-image: linear-gradient(to right, hsl(var(--muted-foreground)) 1px, transparent 1px),
+                    linear-gradient(to bottom, hsl(var(--muted-foreground)) 1px, transparent 1px);
+  /* Use fixed pixel values for consistent fade across all screen sizes */
+  mask-image: linear-gradient(to bottom, black 0%, black 350px, transparent 650px);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 350px, transparent 650px);
+  opacity: 0.25;
 }
 
 [data-theme="light"] .bg-grid {
-  opacity: 0.15;
+  opacity: 0.18;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .bg-grid {
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to bottom, black 0%, black 250px, transparent 500px);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 250px, transparent 500px);
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 480px) {
+  .bg-grid {
+    background-size: 35px 35px;
+    mask-image: linear-gradient(to bottom, black 0%, black 180px, transparent 400px);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 180px, transparent 400px);
+    opacity: 0.35;
+  }
 }
 
 /* Toast Animation */
