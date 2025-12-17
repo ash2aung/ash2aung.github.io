@@ -1,31 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Vercel/Geist Dark Theme */
+  /* Cool Blue-Grey Dark Theme (Default) */
   --background: 0 0% 0%;         /* Pure Black */
-  --foreground: 0 0% 93%;        /* #EDEDED */
+  --foreground: 210 20% 93%;     /* #e0e6ed - Pale Blue-Grey */
   
   /* Subtle UI Elements */
   --card: 0 0% 3%;               /* Almost black */
-  --card-foreground: 0 0% 93%;
+  --card-foreground: 210 20% 93%;
   --card-border: 0 0% 12%;       /* #1F1F1F - Crisp dark border */
   
-  --primary: 0 0% 100%;          /* White */
-  --primary-foreground: 0 0% 0%; /* Black text on white buttons */
+  --primary: 210 20% 93%;        /* Pale Blue-Grey */
+  --primary-foreground: 0 0% 0%; /* Black text on light buttons */
   
   --secondary: 0 0% 10%;         /* Dark Grey buttons */
-  --secondary-foreground: 0 0% 100%;
+  --secondary-foreground: 210 20% 93%;
   
   --muted: 0 0% 10%;
-  --muted-foreground: 0 0% 55%;  /* #888888 - Classic muted text */
+  --muted-foreground: 210 15% 60%; /* #8a9bab - Steel Blue */
   
   --accent: 0 0% 12%;            /* Hover state */
-  --accent-foreground: 0 0% 100%;
+  --accent-foreground: 210 20% 93%;
   
   --border: 0 0% 12%;            /* Global border color */
-  --ring: 0 0% 100%;             /* Focus ring */
+  --ring: 210 20% 93%;           /* Focus ring */
+  
+  /* Additional theme-specific colors */
+  --section-bg: 0 0% 3%;         /* Section backgrounds */
+  --hover-accent: 172 66% 50%;   /* #1abc9c - Teal accent */
+  --text-muted: 210 15% 60%;     /* Muted text */
+  --text-subtle: 210 20% 40%;    /* Subtle text */
   
   --radius: 0.5rem;
+}
+
+/* Light Mode Theme */
+[data-theme="light"] {
+  /* Clean Minimalistic Light Theme */
+  --background: 0 0% 100%;       /* Pure White */
+  --foreground: 210 20% 15%;     /* Dark Blue-Grey */
+  
+  /* Subtle UI Elements */
+  --card: 0 0% 98%;              /* Off-white */
+  --card-foreground: 210 20% 15%;
+  --card-border: 0 0% 90%;       /* Light grey border */
+  
+  --primary: 210 20% 15%;        /* Dark Blue-Grey */
+  --primary-foreground: 0 0% 100%; /* White text on dark buttons */
+  
+  --secondary: 0 0% 96%;         /* Very light grey buttons */
+  --secondary-foreground: 210 20% 15%;
+  
+  --muted: 0 0% 96%;
+  --muted-foreground: 210 15% 45%; /* Medium Blue-Grey */
+  
+  --accent: 0 0% 94%;            /* Hover state */
+  --accent-foreground: 210 20% 15%;
+  
+  --border: 0 0% 90%;            /* Light grey border */
+  --ring: 210 20% 15%;           /* Focus ring */
+  
+  /* Additional theme-specific colors for light mode */
+  --section-bg: 0 0% 98%;        /* Light section backgrounds */
+  --hover-accent: 172 66% 45%;   /* Slightly darker teal */
+  --text-muted: 210 15% 45%;     /* Medium muted text */
+  --text-subtle: 210 20% 60%;    /* Subtle text */
 }
 
 * {
@@ -61,7 +100,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3.5rem; 
   font-weight: 800; 
   line-height: 1.1; 
-  background: linear-gradient(to bottom right, #fff 30%, #888);
+  background: linear-gradient(to bottom right, hsl(var(--foreground)) 30%, hsl(var(--text-muted)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
@@ -77,11 +116,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.5rem;
 }
 
-.h3 { font-size: 1.25rem; font-weight: 500; color: #fff; }
+.h3 { font-size: 1.25rem; font-weight: 500; color: hsl(var(--foreground)); }
 
 .lead { 
   font-size: 1.125rem; 
-  color: #888; 
+  color: hsl(var(--text-muted)); 
   max-width: 600px; 
   line-height: 1.7;
   font-weight: 400;
@@ -98,7 +137,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 2rem;
 }
 
-.section { padding: 6rem 0; }
+.section { padding: 5rem 0; }
 .grid-2 { display: grid; grid-template-columns: 1fr; gap: 3rem; }
 @media (min-width: 768px) { 
   .grid-2 { grid-template-columns: 1fr 1fr; gap: 5rem; } 
@@ -131,12 +170,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline {
-  border: 1px solid #333;
+  border: 1px solid hsl(var(--border));
   background-color: transparent;
   color: hsl(var(--foreground));
 }
 .btn-outline:hover { 
-  border-color: #666;
+  border-color: hsl(var(--muted-foreground));
   background-color: transparent; 
 }
 
@@ -152,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card:hover {
-  border-color: #444;
+  border-color: hsl(var(--muted-foreground));
   transform: translateY(-2px);
 }
 
@@ -160,19 +199,56 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   border-radius: 9999px;
-  border: 1px solid #333;
+  border: 1px solid hsl(var(--border));
   padding: 0.25rem 0.75rem;
   font-size: 0.75rem;
   font-weight: 500;
-  background-color: #111;
-  color: #888;
+  background-color: hsl(var(--muted));
+  color: hsl(var(--text-muted));
 }
 
 /* Background Pattern */
 .bg-grid {
-  background-size: 40px 40px;
-  background-image: linear-gradient(to right, #1a1a1a 1px, transparent 1px),
-                    linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
-  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  background-size: 50px 50px;
+  background-image: linear-gradient(to right, hsl(var(--muted-foreground)) 1px, transparent 1px),
+                    linear-gradient(to bottom, hsl(var(--muted-foreground)) 1px, transparent 1px);
+  /* Use fixed pixel values for consistent fade across all screen sizes */
+  mask-image: linear-gradient(to bottom, black 0%, black 350px, transparent 650px);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 350px, transparent 650px);
+  opacity: 0.25;
+}
+
+[data-theme="light"] .bg-grid {
+  opacity: 0.18;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .bg-grid {
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to bottom, black 0%, black 250px, transparent 500px);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 250px, transparent 500px);
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 480px) {
+  .bg-grid {
+    background-size: 35px 35px;
+    mask-image: linear-gradient(to bottom, black 0%, black 180px, transparent 400px);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 180px, transparent 400px);
+    opacity: 0.35;
+  }
+}
+
+/* Toast Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }

@@ -1,16 +1,20 @@
 /* src/styles/Footer.css */
 .footer {
-  background-color: #0a0a0a;
+  background-color: hsl(var(--background));
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
-  border-top: 1px solid #1a1a1a;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid hsl(var(--border));
+}
+
+[data-theme="light"] .footer {
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .footer p {
-  color: #606060;
+  color: hsl(var(--text-subtle));
   font-size: 0.9rem;
 }
 
@@ -24,19 +28,65 @@
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: #606060;
+  color: hsl(var(--text-subtle));
   transition: color 0.3s ease;
 }
 
 .footer .social-links a:hover {
-  color: #1abc9c;
+  color: hsl(var(--hover-accent));
 }
 
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Large monitors */
+@media (min-width: 1280px) {
+  .footer {
+    padding: 1.75rem 3rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .footer {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .footer .social-links {
+    gap: 1.25rem;
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .footer {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
-    padding: 1rem;
+    padding: 1.25rem 1rem;
+  }
+  
+  .footer .social-links {
+    gap: 1rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 479px) {
+  .footer {
+    padding: 1rem 0.875rem;
+  }
+  
+  .footer p {
+    font-size: 0.85rem;
+  }
+  
+  .footer .social-links {
+    gap: 0.875rem;
+  }
+  
+  .footer .social-links a {
+    font-size: 0.9rem;
   }
 }

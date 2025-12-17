@@ -1,147 +1,468 @@
-.about-wrapper {
+/* About Section */
+.about-section {
+  min-height: 80vh;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  gap: 4rem;
-  padding: 2rem;
-  min-height: 100vh;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 5rem 2rem;
 }
 
-.image-container {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 100px;
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  max-width: 1100px;
+  width: 100%;
+  align-items: center;
+}
+
+/* Text Content */
+.about-text {
+  text-align: left;
+}
+
+.about-text h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to bottom right, hsl(var(--foreground)) 30%, hsl(var(--text-muted)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-text p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: hsl(var(--text-muted));
+  max-width: 500px;
+}
+
+.about-text p strong {
+  font-weight: 700;
+  background: linear-gradient(to bottom right, hsl(var(--foreground)) 30%, hsl(var(--text-muted)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-text p em {
+  font-style: normal;
+  font-weight: 700;
+  background: linear-gradient(to bottom right, hsl(var(--foreground)) 30%, hsl(var(--text-muted)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-hint {
+  font-size: 0.875rem !important;
+  color: hsl(var(--text-subtle)) !important;
+  margin-top: 2rem !important;
+}
+
+/* Orbit Container */
+.orbit-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2rem;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+}
+
+.orbit-container.dragging {
+  cursor: grabbing;
+}
+
+.orbit-wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+/* Individual Orbit Card */
+.orbit-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 240px;
+  height: 300px;
+  cursor: grab;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  pointer-events: auto;
+}
+
+.orbit-container.dragging .orbit-card {
+  cursor: grabbing;
+}
+
+.orbit-card.selected {
+  width: 260px;
+  height: 340px;
+  z-index: 1000 !important;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: auto;
+}
+
+/* Card Flipper */
+.card-flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.card-flipper.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Card Faces */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius, 0.5rem);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  padding: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   gap: 1rem;
 }
 
-.profile-pic {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
+/* Card Front Content */
+.card-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--muted));
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 4px solid #1abc9c;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
-.profile-pic:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 20px rgba(26, 188, 156, 0.2);
+.card-emoji {
+  font-size: 4rem;
+  opacity: 0.9;
 }
 
-.image-caption {
-  color: #505050;
-  font-size: 0.95rem;
-  font-style: italic;
+.orbit-card.selected .card-emoji {
+  font-size: 4.5rem;
+}
+
+.card-info {
+  padding: 0.75rem;
   text-align: center;
-  max-width: 300px;
+}
+
+.card-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.02em;
+}
+
+.card-info p {
+  font-size: 0.8rem;
+  color: hsl(var(--text-subtle));
+  margin: 0;
   line-height: 1.4;
 }
 
-.about-container {
-  max-width: 800px;
-  padding: 2.5rem;
-  background-color: #0e0e0e;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  text-align: left;
-  border: 1px solid #1a1a1a;
+.orbit-card.selected .card-info {
+  padding: 1.25rem;
 }
 
-.about-intro h1 {
-  color: #c0c0c0;
-  margin-bottom: 1.5rem;
-  font-size: 2.2rem;
-  font-weight: 700;
-  background: linear-gradient(45deg, #909090, #1abc9c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.orbit-card.selected .card-info h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
 }
 
-.about-container h2 {
-  color: #a0a0a0;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  font-size: 1.6rem;
-  font-weight: 600;
+.orbit-card.selected .card-info p {
+  font-size: 0.9rem;
+  color: hsl(var(--text-muted));
 }
 
-.about-container p {
-  color: #707070;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+/* Card Back Content */
+.card-emoji-small {
+  font-size: 2rem;
 }
 
-.hobbies-list {
-  list-style: none;
-  padding: 0;
+.fun-fact {
+  font-size: 0.875rem;
+  color: hsl(var(--text-muted));
+  line-height: 1.6;
+  margin: 0;
 }
 
-.hobbies-list li {
-  font-size: 1.1rem;
-  color: #707070;
-  margin-bottom: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
+/* Flip Hint */
+.flip-hint {
+  font-size: 0.65rem;
+  color: hsl(var(--text-subtle));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   padding: 0.5rem;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.hobbies-list li:hover {
-  background-color: rgba(26, 188, 156, 0.1);
+.orbit-card.selected .flip-hint {
+  opacity: 1;
 }
 
-.hobbies-list li strong {
-  color: #909090;
-  font-weight: 600;
-}
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
 
-@media (max-width: 1024px) {
-  .about-wrapper {
-    padding: 1.5rem;
-    gap: 3rem;
-  }
-
-  .profile-pic {
-    width: 300px;
-    height: 300px;
+/* Large monitors (1280px+) */
+@media (min-width: 1280px) {
+  .about-content {
+    gap: 8rem;
   }
   
-  .image-caption {
-    max-width: 250px;
+  .orbit-wrapper {
+    width: 450px;
+    height: 450px;
+  }
+  
+  .orbit-card {
+    width: 260px;
+    height: 320px;
+  }
+  
+  .orbit-card.selected {
+    width: 280px;
+    height: 360px;
   }
 }
 
-@media (max-width: 768px) {
-  .about-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+/* Laptops (1024px - 1279px) */
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .about-content {
+    gap: 5rem;
   }
-
-  .image-container {
-    position: static;
-    margin-bottom: 2rem;
+  
+  .about-text h1 {
+    font-size: 3rem;
   }
+}
 
-  .profile-pic {
-    width: 250px;
+/* Tablets landscape / Small laptops (900px - 1023px) */
+@media (max-width: 1023px) and (min-width: 900px) {
+  .about-content {
+    gap: 4rem;
+  }
+  
+  .about-text h1 {
+    font-size: 2.75rem;
+  }
+  
+  .orbit-wrapper {
+    width: 360px;
+    height: 360px;
+  }
+  
+  .orbit-card {
+    width: 220px;
+    height: 280px;
+  }
+  
+  .orbit-card.selected {
+    width: 240px;
+    height: 310px;
+  }
+}
+
+/* Tablets portrait (640px - 899px) */
+@media (max-width: 899px) {
+  .about-section {
+    padding: 4.5rem 1.5rem;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .about-text {
+    text-align: center;
+    order: 1;
+  }
+  
+  .about-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .about-text h1 {
+    font-size: 2.5rem;
+  }
+  
+  .orbit-container {
+    order: 2;
+  }
+  
+  .orbit-wrapper {
+    width: 380px;
+    height: 380px;
+  }
+  
+  .orbit-card {
+    width: 220px;
+    height: 280px;
+  }
+  
+  .orbit-card.selected {
+    width: 240px;
+    height: 310px;
+  }
+}
+
+/* Large phones (480px - 639px) */
+@media (max-width: 639px) {
+  .about-section {
+    padding: 4rem 1rem;
+    min-height: auto;
+  }
+  
+  .about-content {
+    gap: 2.5rem;
+  }
+  
+  .about-text h1 {
+    font-size: 2.25rem;
+  }
+  
+  .about-text p {
+    font-size: 1rem;
+  }
+  
+  .orbit-wrapper {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .orbit-card {
+    width: 190px;
     height: 250px;
   }
-
-  .about-container {
-    padding: 1.5rem;
+  
+  .orbit-card.selected {
+    width: 210px;
+    height: 275px;
   }
+  
+  .card-emoji {
+    font-size: 3rem;
+  }
+  
+  .orbit-card.selected .card-emoji {
+    font-size: 3.5rem;
+  }
+  
+  .card-info {
+    padding: 0.5rem;
+  }
+  
+  .card-info h3 {
+    font-size: 0.875rem;
+  }
+  
+  .card-info p {
+    font-size: 0.7rem;
+  }
+}
 
-  .about-intro h1 {
-    text-align: center;
+/* Small phones (< 480px) */
+@media (max-width: 479px) {
+  .about-section {
+    padding: 3rem 1rem;
+  }
+  
+  .about-content {
+    gap: 2rem;
+  }
+  
+  .about-text h1 {
+    font-size: 2rem;
+  }
+  
+  .about-text p {
+    font-size: 0.95rem;
+  }
+  
+  .about-hint {
+    font-size: 0.8rem !important;
+  }
+  
+  .orbit-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .orbit-card {
+    width: 160px;
+    height: 210px;
+  }
+  
+  .orbit-card.selected {
+    width: 180px;
+    height: 240px;
+  }
+  
+  .card-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .orbit-card.selected .card-emoji {
+    font-size: 3rem;
+  }
+  
+  .card-info h3 {
+    font-size: 0.8rem;
+  }
+  
+  .card-info p {
+    font-size: 0.65rem;
+  }
+  
+  .card-back {
+    padding: 1rem;
+  }
+  
+  .fun-fact {
+    font-size: 0.75rem;
+  }
+  
+  .card-emoji-small {
+    font-size: 1.5rem;
   }
 }

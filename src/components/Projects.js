@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 import portfolioImage from '../assets/personal.png';
 import emergencyReporterImage from '../assets/emergency.png';
@@ -18,7 +18,7 @@ const projects = [
     desc: 'Real-time reporting system tracking emergencies with live mapping.',
     tags: ['TypeScript', 'Leaflet', 'HTML/CSS'],
     github: 'https://github.com/dagemd/272-FInal-project',
-    demo: '#',
+    demo: 'https://em3rgency-reporter.vercel.app/',
     image: emergencyReporterImage
   },
   {
@@ -26,14 +26,44 @@ const projects = [
     desc: 'Strategic board game in C++ featuring Human vs AI gameplay.',
     tags: ['C++', 'Algorithm', 'Game Dev'],
     github: 'https://replit.com/@ashhhh1507/chaos-and-order?v=1',
-    demo: '#',
+    demo: null,
     image: chaosImage
   }
 ];
 
 function Projects() {
+  const [toast, setToast] = useState({ show: false, message: '' });
+
+  const handleDemoClick = (e, project) => {
+    if (!project.demo) {
+      e.preventDefault();
+      setToast({ show: true, message: `You caught me! No demo for ${project.title} yet 😅` });
+      setTimeout(() => setToast({ show: false, message: '' }), 3000);
+    }
+  };
+
   return (
     <div className="container section">
+      {/* Toast Notification */}
+      {toast.show && (
+        <div style={{
+          position: 'fixed',
+          top: '100px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          backgroundColor: '#111',
+          border: '1px solid #333',
+          color: '#e0e6ed',
+          padding: '1rem 1.5rem',
+          borderRadius: 'var(--radius)',
+          zIndex: 1000,
+          animation: 'fadeIn 0.3s ease',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)'
+        }}>
+          {toast.message}
+        </div>
+      )}
+
       <h2 className="h2">Selected Work</h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
         {projects.map((project, index) => (
@@ -49,7 +79,17 @@ function Projects() {
                 <h3 className="h3" style={{ fontSize: '1.1rem', margin: 0 }}>{project.title}</h3>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
                   <a href={project.github} target="_blank" rel="noreferrer" style={{ color: '#666', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = '#fff'} onMouseOut={e => e.target.style.color = '#666'}><Github size={18} /></a>
-                  <a href={project.demo} target="_blank" rel="noreferrer" style={{ color: '#666', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = '#fff'} onMouseOut={e => e.target.style.color = '#666'}><ExternalLink size={18} /></a>
+                  <a 
+                    href={project.demo || '#'} 
+                    target={project.demo ? '_blank' : '_self'}
+                    rel="noreferrer" 
+                    style={{ color: project.demo ? '#666' : '#444', transition: 'color 0.2s', cursor: 'pointer' }} 
+                    onMouseOver={e => e.target.style.color = project.demo ? '#fff' : '#666'} 
+                    onMouseOut={e => e.target.style.color = project.demo ? '#666' : '#444'}
+                    onClick={(e) => handleDemoClick(e, project)}
+                  >
+                    <ExternalLink size={18} />
+                  </a>
                 </div>
               </div>
               <p className="muted" style={{ fontSize: '0.9rem', flex: 1, marginBottom: '1.5rem' }}>{project.desc}</p>

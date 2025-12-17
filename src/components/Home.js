@@ -1,17 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import profileImage from "../assets/profile.jpg";
 import resume from "../assets/resume.pdf";
-import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 function Home() {
+  const [toast, setToast] = useState(false);
+
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText('hwa201@sfu.ca');
+    setToast(true);
+    setTimeout(() => setToast(false), 3000);
+  };
+
   return (
     <div className="container section" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
+      {/* Toast Notification */}
+      {toast && (
+        <div style={{
+          position: 'fixed',
+          top: '100px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          backgroundColor: 'hsl(var(--card))',
+          border: '1px solid hsl(var(--border))',
+          color: 'hsl(var(--foreground))',
+          padding: '1rem 1.5rem',
+          borderRadius: 'var(--radius)',
+          zIndex: 1000,
+          animation: 'fadeIn 0.3s ease',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)'
+        }}>
+          Email copied to clipboard!
+        </div>
+      )}
       <div className="grid-2" style={{ alignItems: 'center' }}>
         <div className="left-content">
-          <h1 className="h1">Building digital<br/>experiences.</h1>
+          
+          <h1 className="h1">Ash Aung</h1>
           
           <p className="lead" style={{ marginBottom: '2.5rem' }}>
-            I'm Ash, a Software Systems student at SFU. I build accessible, pixel-perfect, and performant web applications.
+            Hi, I'm Ash, a Software Systems student at SFU. I enjoy building niche websites and tools that solve problems I personally care about.
           </p>
           
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -23,24 +52,44 @@ function Home() {
             </a>
           </div>
 
-          <div style={{ marginTop: '3rem', display: 'flex', gap: '1.5rem' }}>
-            {[
-              { Icon: Github, link: "https://github.com/ash2aung" },
-              { Icon: Linkedin, link: "https://linkedin.com/in/ash2aung" },
-              { Icon: Mail, link: "mailto:hwa201@sfu.ca" }
-            ].map(({ Icon, link }, idx) => (
-              <a 
-                key={idx} 
-                href={link} 
-                target="_blank" 
-                rel="noreferrer" 
-                style={{ color: '#666', transition: 'color 0.2s' }}
-                onMouseOver={(e) => e.currentTarget.style.color = '#fff'}
-                onMouseOut={(e) => e.currentTarget.style.color = '#666'}
-              >
-                <Icon size={20} />
-              </a>
-            ))}
+          <div style={{ marginTop: '3rem', display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+            <a 
+              href="https://github.com/ash2aung"
+              target="_blank" 
+              rel="noreferrer" 
+              style={{ color: 'hsl(var(--text-subtle))', transition: 'color 0.2s' }}
+              onMouseOver={(e) => e.currentTarget.style.color = 'hsl(var(--hover-accent))'}
+              onMouseOut={(e) => e.currentTarget.style.color = 'hsl(var(--text-subtle))'}
+            >
+              <Github size={20} />
+            </a>
+            <a 
+              href="https://linkedin.com/in/ash2aung"
+              target="_blank" 
+              rel="noreferrer" 
+              style={{ color: 'hsl(var(--text-subtle))', transition: 'color 0.2s' }}
+              onMouseOver={(e) => e.currentTarget.style.color = 'hsl(var(--hover-accent))'}
+              onMouseOut={(e) => e.currentTarget.style.color = 'hsl(var(--text-subtle))'}
+            >
+              <Linkedin size={20} />
+            </a>
+            <button
+              onClick={handleEmailClick}
+              style={{ 
+                background: 'none', 
+                border: 'none', 
+                padding: 0,
+                cursor: 'pointer',
+                color: 'hsl(var(--text-subtle))', 
+                transition: 'color 0.2s',
+                display: 'flex',
+                alignItems: 'center'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.color = 'hsl(var(--hover-accent))'}
+              onMouseOut={(e) => e.currentTarget.style.color = 'hsl(var(--text-subtle))'}
+            >
+              <Mail size={20} />
+            </button>
           </div>
         </div>
 
@@ -54,7 +103,7 @@ function Home() {
             <div style={{
               position: 'absolute',
               inset: '-20px',
-              background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%)',
+              background: 'radial-gradient(circle, hsl(var(--foreground) / 0.1) 0%, transparent 70%)',
               borderRadius: '50%',
               zIndex: 0
             }} />
@@ -66,7 +115,7 @@ function Home() {
                 height: '100%', 
                 borderRadius: '50%', 
                 objectFit: 'cover',
-                border: '1px solid #333',
+                border: '1px solid hsl(var(--border))',
                 position: 'relative',
                 zIndex: 1
               }}
