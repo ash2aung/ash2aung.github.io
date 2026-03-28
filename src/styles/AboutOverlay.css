@@ -158,44 +158,98 @@
   margin: 0;
 }
 
-/* Carousel Section */
+/* ===== 3D COVER FLOW CAROUSEL ===== */
+
 .about-carousel-section {
   margin-bottom: 4rem;
 }
 
-.about-carousel-container {
+.coverflow-container {
   position: relative;
   width: 100%;
-  overflow: hidden;
-  padding: 2rem 0;
+  padding: 3rem 0;
+  overflow: visible;
 }
 
-.about-carousel-track {
+.coverflow-perspective {
+  perspective: 1200px;
+  perspective-origin: center center;
+  width: 100%;
   display: flex;
-  gap: 1.5rem;
+  justify-content: center;
+  overflow: visible;
+}
+
+.coverflow-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 280px; /* Single card width - cards position themselves */
+  height: 400px;
   cursor: grab;
   user-select: none;
-  padding: 0 2rem;
+  transform-style: preserve-3d;
 }
 
-.about-carousel-track:active {
+.coverflow-track:active {
   cursor: grabbing;
 }
 
-.about-carousel-card {
-  flex-shrink: 0;
+/* Individual Cover Flow Card */
+.coverflow-card {
+  position: absolute;
   width: 280px;
-  height: 360px;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  background: #2c2c2e;
-  border: 1px solid #3a3a3c;
-  transition: border-color 0.3s;
-  will-change: transform, filter;
+  height: 380px;
+  transform-style: preserve-3d;
+  cursor: none;
+  will-change: transform, opacity, filter;
 }
 
-.about-carousel-card img {
+.coverflow-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Card Faces - shared styles */
+.coverflow-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  
+  /* Glassmorphism */
+  background: rgba(44, 44, 46, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+/* Front Face */
+.coverflow-card-front {
+  display: flex;
+  flex-direction: column;
+}
+
+.coverflow-card-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2a2a2c 0%, #1c1c1e 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.coverflow-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -203,36 +257,105 @@
   user-select: none;
 }
 
-.about-carousel-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(28, 28, 30, 0.6) 0%, transparent 50%);
-  pointer-events: none;
+.coverflow-card-emoji {
+  font-size: 4.5rem;
+  filter: saturate(0.9);
 }
 
-.about-carousel-hint {
+.coverflow-card-content {
+  padding: 1.25rem 1.5rem 1.5rem;
+  background: rgba(28, 28, 30, 0.6);
+}
+
+.coverflow-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f5f5f7;
+  margin: 0 0 0.35rem 0;
+  letter-spacing: -0.02em;
+}
+
+.coverflow-card-desc {
+  font-size: 0.85rem;
+  color: #8a8a8e;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Glow effect on front */
+.coverflow-card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(90, 122, 74, 0.15) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.coverflow-card:hover .coverflow-card-glow {
+  opacity: 1;
+}
+
+/* Back Face */
+.coverflow-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    rgba(90, 122, 74, 0.15) 0%,
+    rgba(44, 44, 46, 0.9) 100%
+  );
+}
+
+.coverflow-card-emoji-small {
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+  filter: saturate(0.9);
+}
+
+.coverflow-card-funfact {
+  font-size: 1rem;
+  color: #d1d1d6;
+  line-height: 1.7;
+  margin: 0 0 1.5rem 0;
+  font-style: italic;
+}
+
+.coverflow-card-flip-hint {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: #5a7a4a;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+}
+
+/* Hint text */
+.coverflow-hint {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   font-size: 0.72rem;
   color: #6e6e73;
   letter-spacing: 0.05em;
 }
 
-.about-carousel-hint svg {
-  width: 16px;
-  height: 16px;
-  animation: hintBounce 1.5s ease-in-out infinite;
+.coverflow-hint-separator {
+  color: #3a3a3c;
 }
 
-@keyframes hintBounce {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(4px); }
-}
+/* ===== RESPONSIVE ===== */
 
-/* Responsive */
 @media (max-width: 768px) {
   .about-overlay-inner {
     padding: 5rem 1.5rem 3rem;
@@ -249,9 +372,44 @@
     grid-template-columns: 1fr;
   }
   
-  .about-carousel-card {
+  /* Smaller cards on mobile */
+  .coverflow-track {
     width: 240px;
-    height: 300px;
+    height: 340px;
+  }
+  
+  .coverflow-card {
+    width: 240px;
+    height: 320px;
+  }
+  
+  .coverflow-perspective {
+    perspective: 800px;
+  }
+  
+  .coverflow-card-emoji {
+    font-size: 3.5rem;
+  }
+  
+  .coverflow-card-content {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+  
+  .coverflow-card-title {
+    font-size: 1.05rem;
+  }
+  
+  .coverflow-card-desc {
+    font-size: 0.8rem;
+  }
+  
+  .coverflow-hint {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .coverflow-hint-separator {
+    display: none;
   }
 }
 
@@ -266,5 +424,34 @@
   
   .about-bio-text {
     font-size: 1rem;
+  }
+  
+  .coverflow-track {
+    width: 200px;
+    height: 300px;
+  }
+  
+  .coverflow-card {
+    width: 200px;
+    height: 280px;
+  }
+  
+  .coverflow-card-emoji {
+    font-size: 3rem;
+  }
+  
+  .coverflow-card-funfact {
+    font-size: 0.9rem;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .coverflow-card-inner {
+    transition: none;
+  }
+  
+  .coverflow-card-glow {
+    transition: none;
   }
 }

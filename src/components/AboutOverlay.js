@@ -1,6 +1,52 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring, useVelocity } from 'framer-motion';
 import '../styles/AboutOverlay.css';
+import ashPic from '../assets/ash.jpg';
+import profilePic from '../assets/profile.jpg';
+
+// Cards data - interests with flip-card fun facts
+const cards = [
+  {
+    id: 1,
+    emoji: '🎵',
+    title: 'Music',
+    description: 'R&B enthusiast, currently into BRB.',
+    funFact: 'I have a playlist for every mood — even "coding at 2am".',
+    image: null,
+  },
+  {
+    id: 2,
+    emoji: '✈️',
+    title: 'Travel',
+    description: 'Bangkok, Singapore, Hong Kong & more.',
+    funFact: 'I once got lost in Vietnam for 3 hours. Best pho I ever had.',
+    image: null,
+  },
+  {
+    id: 3,
+    emoji: '🥾',
+    title: 'Hiking',
+    description: 'Got lost a few times. Worth it.',
+    funFact: 'I forgot to bring food on a 6-hour hike. Survived on vibes.',
+    image: ashPic,
+  },
+  {
+    id: 4,
+    emoji: '📸',
+    title: 'Photography',
+    description: 'Beaches, mountains, vintage cameras.',
+    funFact: 'Saving up for a vintage digital camera from the 2000s.',
+    image: profilePic,
+  },
+  {
+    id: 5,
+    emoji: '🏸',
+    title: 'Sports',
+    description: 'Basketball turned badminton.',
+    funFact: 'I switched because I kept getting elbowed in pickup games.',
+    image: null,
+  }
+];
 
 // Leadership roles data
 const leadershipRoles = [
@@ -22,16 +68,6 @@ const leadershipRoles = [
     org: 'Upcoming Hackathon',
     desc: 'Planning an innovative hackathon experience for the next generation of builders.',
   },
-];
-
-// Gallery images (placeholder URLs - replace with your actual images)
-const galleryImages = [
-  { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=500&fit=crop', alt: 'Mountain landscape' },
-  { src: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=500&fit=crop', alt: 'Forest trail' },
-  { src: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&h=500&fit=crop', alt: 'Lake reflection' },
-  { src: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=500&fit=crop', alt: 'Misty mountains' },
-  { src: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400&h=500&fit=crop', alt: 'Forest path' },
-  { src: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=400&h=500&fit=crop', alt: 'Waterfall' },
 ];
 
 // Stagger animation config for text reveals
@@ -79,20 +115,25 @@ const textRevealVariant = {
 };
 
 function AboutOverlay({ isOpen, onClose }) {
-  const carouselRef = useRef(null);
-  const [carouselWidth, setCarouselWidth] = useState(0);
+  const [flippedCard, setFlippedCard] = useState(null);
+  const [centerIndex, setCenterIndex] = useState(2); // Start with middle card centered
+  const containerRef = useRef(null);
   
-  // Draggable carousel state
+  // Drag motion values with spring physics
   const x = useMotionValue(0);
+  const velocity = useVelocity(x);
   
-  // Calculate carousel constraints
-  useEffect(() => {
-    if (carouselRef.current && isOpen) {
-      const scrollWidth = carouselRef.current.scrollWidth;
-      const clientWidth = carouselRef.current.offsetWidth;
-      setCarouselWidth(scrollWidth - clientWidth + 60);
-    }
-  }, [isOpen]);
+  // Spring config for smooth animations
+  const springConfig = { stiffness: 300, damping: 30 };
+  const xSpring = useSpring(x, springConfig);
+  
+  // Calculate card width + gap for snapping
+  const cardWidth = 280;
+  const cardGap = 24;
+  const cardStep = cardWidth + cardGap;
+  
+  // Transform drag X to rotation for velocity leaning
+  const rotateY = useTransform(velocity, [-1000, 0, 1000], [15, 0, -15]);
   
   // Handle escape key
   useEffect(() => {
@@ -117,6 +158,41 @@ function AboutOverlay({ isOpen, onClose }) {
       document.body.style.overflow = '';
     };
   }, [isOpen]);
+  
+  // Reset state when overlay opens
+  useEffect(() => {
+    if (isOpen) {
+      setFlippedCard(null);
+      setCenterIndex(2);
+      x.set(0);
+    }
+  }, [isOpen, x]);
+  
+  // Handle card flip
+  const handleCardClick = (index) => {
+    // Only flip if it's the center card
+    if (index === centerIndex) {
+      setFlippedCard(flippedCard === index ? null : index);
+    } else {
+      // Snap to make clicked card the center
+      const targetX = (centerIndex - index) * cardStep;
+      x.set(targetX);
+      setCenterIndex(index);
+      setFlippedCard(null);
+    }
+  };
+  
+  // Handle drag end - snap to nearest card
+  const handleDragEnd = () => {
+    const currentX = x.get();
+    const offset = Math.round(currentX / cardStep);
+    const newCenterIndex = Math.max(0, Math.min(cards.length - 1, centerIndex - offset));
+    const snapX = (centerIndex - newCenterIndex) * cardStep;
+    
+    x.set(snapX);
+    setCenterIndex(newCenterIndex);
+    setFlippedCard(null);
+  };
 
   return (
     <motion.div
@@ -208,36 +284,48 @@ function AboutOverlay({ isOpen, onClose }) {
           </div>
         </section>
         
-        {/* Draggable Carousel Section */}
+        {/* 3D Cover Flow Carousel Section */}
         <section className="about-carousel-section">
           <motion.span className="about-section-label" variants={textRevealVariant}>
-            {'// gallery.moments'}
+            {'// interests.explore'}
           </motion.span>
           <motion.h2 className="about-section-title" variants={textRevealVariant}>
-            Through My Lens
+            Beyond the Code
           </motion.h2>
+          
           <motion.div 
-            className="about-carousel-container"
+            className="coverflow-container"
             variants={textRevealVariant}
+            ref={containerRef}
           >
-            <motion.div
-              ref={carouselRef}
-              className="about-carousel-track"
-              drag="x"
-              dragConstraints={{ left: -carouselWidth, right: 40 }}
-              dragElastic={0.2}
-              dragTransition={{ bounceStiffness: 300, bounceDamping: 25 }}
-              style={{ x }}
-            >
-              {galleryImages.map((image, i) => (
-                <CarouselCard key={i} image={image} index={i} x={x} />
-              ))}
-            </motion.div>
-            <div className="about-carousel-hint">
+            <div className="coverflow-perspective">
+              <motion.div
+                className="coverflow-track"
+                drag="x"
+                dragConstraints={{ left: -cardStep * 2, right: cardStep * 2 }}
+                dragElastic={0.1}
+                onDragEnd={handleDragEnd}
+                style={{ x: xSpring }}
+              >
+                {cards.map((card, index) => (
+                  <CoverFlowCard
+                    key={card.id}
+                    card={card}
+                    index={index}
+                    centerIndex={centerIndex}
+                    isFlipped={flippedCard === index}
+                    onClick={() => handleCardClick(index)}
+                    dragX={x}
+                    velocityRotate={rotateY}
+                  />
+                ))}
+              </motion.div>
+            </div>
+            
+            <div className="coverflow-hint">
               <span>drag to explore</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
+              <span className="coverflow-hint-separator">·</span>
+              <span>click center card to flip</span>
             </div>
           </motion.div>
         </section>
@@ -246,48 +334,119 @@ function AboutOverlay({ isOpen, onClose }) {
   );
 }
 
-// Carousel card with scale/brightness effect based on position
-function CarouselCard({ image, index, x }) {
-  const cardRef = useRef(null);
+// Individual Cover Flow Card with 3D transforms
+function CoverFlowCard({ card, index, centerIndex, isFlipped, onClick, dragX, velocityRotate }) {
+  const offset = index - centerIndex;
   
-  // Transform x position to scale and brightness
-  const scale = useTransform(x, (latestX) => {
-    if (!cardRef.current) return 1;
-    const containerWidth = window.innerWidth;
-    const cardWidth = 280;
-    const gap = 24;
-    const cardCenter = (index * (cardWidth + gap)) + cardWidth / 2 + latestX + 32;
-    const containerCenter = containerWidth / 2;
-    const distFromCenter = Math.abs(cardCenter - containerCenter);
-    const maxDist = containerCenter;
-    const normalized = Math.min(distFromCenter / maxDist, 1);
-    return 1.05 - normalized * 0.15;
+  // Calculate 3D transforms based on position from center
+  const rotateY = useTransform(dragX, (latestX) => {
+    const dragOffset = latestX / (280 + 24); // cardStep
+    const effectiveOffset = offset - dragOffset;
+    
+    // Cards rotate away from center
+    if (Math.abs(effectiveOffset) < 0.1) return 0;
+    return effectiveOffset * -45; // 45 degree rotation per card position
   });
   
-  const brightness = useTransform(x, (latestX) => {
-    if (!cardRef.current) return 1;
-    const containerWidth = window.innerWidth;
-    const cardWidth = 280;
-    const gap = 24;
-    const cardCenter = (index * (cardWidth + gap)) + cardWidth / 2 + latestX + 32;
-    const containerCenter = containerWidth / 2;
-    const distFromCenter = Math.abs(cardCenter - containerCenter);
-    const maxDist = containerCenter;
-    const normalized = Math.min(distFromCenter / maxDist, 1);
-    return 1 - normalized * 0.35;
+  const translateX = useTransform(dragX, (latestX) => {
+    const dragOffset = latestX / (280 + 24);
+    const effectiveOffset = offset - dragOffset;
+    
+    // Tighter spacing in center, spread out on sides
+    const baseTranslate = effectiveOffset * 220;
+    return baseTranslate;
   });
+  
+  const translateZ = useTransform(dragX, (latestX) => {
+    const dragOffset = latestX / (280 + 24);
+    const effectiveOffset = Math.abs(offset - dragOffset);
+    
+    // Center card comes forward, others recede
+    return -effectiveOffset * 100;
+  });
+  
+  const scale = useTransform(dragX, (latestX) => {
+    const dragOffset = latestX / (280 + 24);
+    const effectiveOffset = Math.abs(offset - dragOffset);
+    
+    // Center card is full size, others shrink
+    return Math.max(0.7, 1 - effectiveOffset * 0.15);
+  });
+  
+  const opacity = useTransform(dragX, (latestX) => {
+    const dragOffset = latestX / (280 + 24);
+    const effectiveOffset = Math.abs(offset - dragOffset);
+    
+    // Fade out cards far from center
+    return Math.max(0.4, 1 - effectiveOffset * 0.25);
+  });
+  
+  const brightness = useTransform(dragX, (latestX) => {
+    const dragOffset = latestX / (280 + 24);
+    const effectiveOffset = Math.abs(offset - dragOffset);
+    
+    return Math.max(0.6, 1 - effectiveOffset * 0.2);
+  });
+  
+  // Z-index based on distance from center (center has highest)
+  const zIndex = useTransform(dragX, (latestX) => {
+    const dragOffset = latestX / (280 + 24);
+    const effectiveOffset = Math.abs(offset - dragOffset);
+    return Math.round(10 - effectiveOffset * 2);
+  });
+  
+  // Add velocity-based lean
+  const velocityLean = useTransform(velocityRotate, (v) => v * 0.3);
+  
+  // Combine rotations
+  const combinedRotateY = useTransform(
+    [rotateY, velocityLean],
+    ([cardRotate, lean]) => isFlipped ? 180 : (cardRotate + lean)
+  );
 
   return (
     <motion.div
-      ref={cardRef}
-      className="about-carousel-card"
-      style={{ 
+      className={`coverflow-card ${isFlipped ? 'flipped' : ''}`}
+      onClick={onClick}
+      style={{
+        x: translateX,
+        z: translateZ,
         scale,
+        opacity,
+        zIndex,
         filter: useTransform(brightness, (b) => `brightness(${b})`),
       }}
     >
-      <img src={image.src} alt={image.alt} draggable="false" />
-      <div className="about-carousel-card-overlay" />
+      <motion.div 
+        className="coverflow-card-inner"
+        style={{ 
+          rotateY: combinedRotateY,
+        }}
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      >
+        {/* Front Face */}
+        <div className="coverflow-card-face coverflow-card-front">
+          <div className="coverflow-card-image">
+            {card.image ? (
+              <img src={card.image} alt={card.title} draggable="false" />
+            ) : (
+              <span className="coverflow-card-emoji">{card.emoji}</span>
+            )}
+          </div>
+          <div className="coverflow-card-content">
+            <h3 className="coverflow-card-title">{card.title}</h3>
+            <p className="coverflow-card-desc">{card.description}</p>
+          </div>
+          <div className="coverflow-card-glow" />
+        </div>
+        
+        {/* Back Face */}
+        <div className="coverflow-card-face coverflow-card-back">
+          <span className="coverflow-card-emoji-small">{card.emoji}</span>
+          <p className="coverflow-card-funfact">{card.funFact}</p>
+          <span className="coverflow-card-flip-hint">tap to flip back</span>
+        </div>
+      </motion.div>
     </motion.div>
   );
 }

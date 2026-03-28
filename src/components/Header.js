@@ -1,92 +1,118 @@
-import React from "react";
-import ThemeToggle from "./ThemeToggle";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import MagneticButton from './MagneticButton';
+import resume from '../assets/resume.pdf';
+import '../styles/Header.css';
+
+const navItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
+];
 
 function Header() {
+  const [activeSection, setActiveSection] = useState('home');
+  const [scrolled, setScrolled] = useState(false);
+
+  // Track scroll position for nav shadow + active section
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+
+      // Determine active section from scroll position
+      const sections = navItems.map((item) => item.href.slice(1));
+      let current = 'home';
+
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 120) current = id;
+        }
+      }
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    if (href === '#home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <header className="header" style={{ 
-      position: 'sticky', 
-      top: 0, 
-      zIndex: 50, 
-      borderBottom: '1px solid hsl(var(--border))',
-      backgroundColor: 'hsl(var(--background) / 0.6)',
-      backdropFilter: 'blur(12px)',
-      WebkitBackdropFilter: 'blur(12px)'
-    }}>
-      <nav className="container" style={{ 
-        display: 'flex', 
-        justifyContent: 'space-between',
-        alignItems: 'center', 
-        height: '70px',
-        padding: '0 2rem',
-        maxWidth: '1200px',
-        margin: '0 auto'
-      }}>
-        
-        {/* Logo (Left) */}
-        <a href="#home" className="logo" style={{ 
-          fontSize: '1.1rem', 
-          fontWeight: '700', 
-          color: 'hsl(var(--foreground))', 
-          textDecoration: 'none', 
-          letterSpacing: '-0.02em'
-        }}>
-          Ash Aung
+    <motion.header
+      className={`nav-header ${scrolled ? 'scrolled' : ''}`}
+      initial={{ y: -56, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+    >
+      <nav className="nav-inner">
+        {/* Logo */}
+        <a
+          href="#home"
+          className="nav-logo"
+          onClick={(e) => handleNavClick(e, '#home')}
+        >
+          ash.
         </a>
 
-        {/* Nav Links + Contact + Theme Toggle (Right) */}
-        <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          {['About', 'Projects', 'Skills', 'Experience'].map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
-              style={{ 
-                textDecoration: 'none', 
-                color: 'hsl(var(--text-muted))', 
-                fontSize: '0.9rem', 
-                fontWeight: '500', 
-                transition: 'color 0.2s' 
-              }}
-              onMouseOver={(e) => e.target.style.color = 'hsl(var(--foreground))'}
-              onMouseOut={(e) => e.target.style.color = 'hsl(var(--text-muted))'}
+        {/* Nav Links with animated underline */}
+        <div className="nav-links">
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className={`nav-link ${activeSection === item.href.slice(1) ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, item.href)}
             >
-              {item}
+              {item.label}
+              {activeSection === item.href.slice(1) && (
+                <motion.div
+                  className="nav-link-indicator"
+                  layoutId="nav-indicator"
+                  transition={{
+                    type: 'spring',
+                    stiffness: 380,
+                    damping: 30,
+                  }}
+                />
+              )}
             </a>
           ))}
-          
-          <a 
-            href="#contact" 
-            style={{ 
-              textDecoration: 'none',
-              backgroundColor: 'transparent',
-              color: 'hsl(var(--foreground))',
-              padding: '0.5rem 1rem',
-              borderRadius: 'var(--radius, 0.5rem)',
-              border: '1px solid hsl(var(--border))',
-              fontSize: '0.85rem',
-              fontWeight: '500',
-              transition: 'all 0.2s ease',
-              display: 'inline-block',
-              marginLeft: '0.5rem'
-            }}
-            onMouseOver={(e) => {
-              e.target.style.borderColor = 'hsl(var(--muted-foreground))';
-              e.target.style.color = 'hsl(var(--foreground))';
-              e.target.style.transform = 'translateY(-2px)';
-            }}
-            onMouseOut={(e) => {
-              e.target.style.borderColor = 'hsl(var(--border))';
-              e.target.style.color = 'hsl(var(--foreground))';
-              e.target.style.transform = 'translateY(0)';
-            }}
+
+          {/* Resume — magnetic dark pill */}
+          <MagneticButton
+            as="a"
+            href={resume}
+            download
+            className="nav-resume-btn"
           >
-            Contact
-          </a>
-          
-          <ThemeToggle />
+            Resume
+            <svg
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            >
+              <path d="M5 1v6M2.5 4.5 5 7l2.5-2.5" />
+            </svg>
+          </MagneticButton>
         </div>
-        
       </nav>
-    </header>
+    </motion.header>
   );
 }
 
