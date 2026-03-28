@@ -1,0 +1,270 @@
+/* About Overlay Styles - Awwwards-tier Terminal Wipe */
+
+.about-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #1c1c1e; /* Rich dark graphite */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.about-overlay-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6rem 3rem 4rem;
+  position: relative;
+}
+
+/* Close Button */
+.about-close-btn {
+  position: fixed;
+  top: 2rem;
+  right: 3rem;
+  z-index: 10001;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: #8a8a8e;
+  background: transparent;
+  border: 1px solid #3a3a3c;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s, border-color 0.2s, box-shadow 0.3s;
+  cursor: none;
+}
+
+.about-close-btn:hover {
+  color: #f5f5f7;
+  border-color: #5a5a5e;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.about-close-bracket {
+  color: #5a7a4a;
+  font-weight: 700;
+}
+
+.about-close-x {
+  color: #f5f5f7;
+}
+
+/* Section Labels */
+.about-section-label {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: #5a7a4a;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* Bio Section */
+.about-bio-section {
+  margin-bottom: 5rem;
+}
+
+.about-bio-title {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: #f5f5f7;
+  margin: 0 0 0.25rem 0;
+}
+
+.about-bio-title-accent {
+  background: linear-gradient(135deg, #8a9a7a 0%, #5a7a4a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-bio-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #a1a1a6;
+  max-width: 600px;
+  margin: 1.5rem 0;
+}
+
+.about-bio-text .text-accent {
+  color: #c8d4bc;
+  font-weight: 500;
+}
+
+.about-bio-text-muted {
+  color: #6e6e73;
+  font-size: 1rem;
+}
+
+/* Leadership Section */
+.about-leadership-section {
+  margin-bottom: 5rem;
+}
+
+.about-section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #f5f5f7;
+  margin: 0 0 2rem 0;
+}
+
+.about-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.about-role-card {
+  background: #2c2c2e;
+  border: 1px solid #3a3a3c;
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              border-color 0.3s, 
+              box-shadow 0.3s;
+}
+
+.about-role-index {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: #5a5a5e;
+  margin-bottom: 1rem;
+}
+
+.about-role-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f5f5f7;
+  margin: 0 0 0.25rem 0;
+}
+
+.about-role-org {
+  font-size: 0.75rem;
+  color: #5a7a4a;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.about-role-desc {
+  font-size: 0.85rem;
+  color: #8a8a8e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Carousel Section */
+.about-carousel-section {
+  margin-bottom: 4rem;
+}
+
+.about-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.about-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  cursor: grab;
+  user-select: none;
+  padding: 0 2rem;
+}
+
+.about-carousel-track:active {
+  cursor: grabbing;
+}
+
+.about-carousel-card {
+  flex-shrink: 0;
+  width: 280px;
+  height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: #2c2c2e;
+  border: 1px solid #3a3a3c;
+  transition: border-color 0.3s;
+  will-change: transform, filter;
+}
+
+.about-carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.about-carousel-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(28, 28, 30, 0.6) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.about-carousel-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.72rem;
+  color: #6e6e73;
+  letter-spacing: 0.05em;
+}
+
+.about-carousel-hint svg {
+  width: 16px;
+  height: 16px;
+  animation: hintBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes hintBounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-overlay-inner {
+    padding: 5rem 1.5rem 3rem;
+  }
+  
+  .about-close-btn {
+    top: 1rem;
+    right: 1.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+  }
+  
+  .about-roles-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-carousel-card {
+    width: 240px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-bio-title {
+    font-size: 2rem;
+  }
+  
+  .about-section-title {
+    font-size: 1.5rem;
+  }
+  
+  .about-bio-text {
+    font-size: 1rem;
+  }
+}
