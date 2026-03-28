@@ -1,71 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 :root {
-  /* Cool Blue-Grey Dark Theme (Default) */
-  --background: 0 0% 0%;         /* Pure Black */
-  --foreground: 210 20% 93%;     /* #e0e6ed - Pale Blue-Grey */
+  /* Prototype Sage-Green Light Theme (Default) */
+  --bg: 50 14% 97%;              /* #f9f9f7 - Warm off-white */
+  --background: 50 14% 97%;
+  --fg: 50 8% 10%;               /* #1a1a16 - Warm black */
+  --foreground: 50 8% 10%;
   
-  /* Subtle UI Elements */
-  --card: 0 0% 3%;               /* Almost black */
-  --card-foreground: 210 20% 93%;
-  --card-border: 0 0% 12%;       /* #1F1F1F - Crisp dark border */
+  /* Sage Green Accent */
+  --sage: 93 26% 38%;            /* #5a7a4a */
   
-  --primary: 210 20% 93%;        /* Pale Blue-Grey */
-  --primary-foreground: 0 0% 0%; /* Black text on light buttons */
+  /* UI Elements */
+  --card: 0 0% 100%;             /* Pure white */
+  --card-foreground: 50 8% 10%;
+  --card-border: 50 14% 91%;     /* #e8e8e0 */
   
-  --secondary: 0 0% 10%;         /* Dark Grey buttons */
-  --secondary-foreground: 210 20% 93%;
+  --primary: 50 8% 10%;          /* Dark text/buttons */
+  --primary-foreground: 50 14% 97%; /* Light text on dark */
   
-  --muted: 0 0% 10%;
-  --muted-foreground: 210 15% 60%; /* #8a9bab - Steel Blue */
+  --secondary: 50 14% 91%;
+  --secondary-foreground: 50 8% 10%;
   
-  --accent: 0 0% 12%;            /* Hover state */
-  --accent-foreground: 210 20% 93%;
+  --muted: 50 4% 58%;            /* #9a9a8e */
+  --muted-foreground: 50 4% 58%;
   
-  --border: 0 0% 12%;            /* Global border color */
-  --ring: 210 20% 93%;           /* Focus ring */
+  --accent: 93 26% 38%;          /* Sage green */
+  --accent-foreground: 50 14% 97%;
   
-  /* Additional theme-specific colors */
-  --section-bg: 0 0% 3%;         /* Section backgrounds */
-  --hover-accent: 172 66% 50%;   /* #1abc9c - Teal accent */
-  --text-muted: 210 15% 60%;     /* Muted text */
-  --text-subtle: 210 20% 40%;    /* Subtle text */
+  --border: 50 14% 88%;          /* #e0e0d8 */
+  --ring: 93 26% 38%;            /* Sage focus ring */
   
-  --radius: 0.5rem;
+  /* Additional prototype colors */
+  --section-bg: 50 14% 97%;
+  --hover-accent: 93 26% 38%;    /* Sage */
+  --text-muted: 50 4% 58%;       /* #9a9a8e */
+  --text-subtle: 50 14% 88%;     /* #e0e0d8 */
+  
+  --radius: 10px;
+  --nav-h: 56px;
 }
 
-/* Light Mode Theme */
-[data-theme="light"] {
-  /* Clean Minimalistic Light Theme */
-  --background: 0 0% 100%;       /* Pure White */
-  --foreground: 210 20% 15%;     /* Dark Blue-Grey */
-  
-  /* Subtle UI Elements */
-  --card: 0 0% 98%;              /* Off-white */
-  --card-foreground: 210 20% 15%;
-  --card-border: 0 0% 90%;       /* Light grey border */
-  
-  --primary: 210 20% 15%;        /* Dark Blue-Grey */
-  --primary-foreground: 0 0% 100%; /* White text on dark buttons */
-  
-  --secondary: 0 0% 96%;         /* Very light grey buttons */
-  --secondary-foreground: 210 20% 15%;
-  
-  --muted: 0 0% 96%;
-  --muted-foreground: 210 15% 45%; /* Medium Blue-Grey */
-  
-  --accent: 0 0% 94%;            /* Hover state */
-  --accent-foreground: 210 20% 15%;
-  
-  --border: 0 0% 90%;            /* Light grey border */
-  --ring: 210 20% 15%;           /* Focus ring */
-  
-  /* Additional theme-specific colors for light mode */
-  --section-bg: 0 0% 98%;        /* Light section backgrounds */
-  --hover-accent: 172 66% 45%;   /* Slightly darker teal */
-  --text-muted: 210 15% 45%;     /* Medium muted text */
-  --text-subtle: 210 20% 60%;    /* Subtle text */
-}
+
 
 * {
   box-sizing: border-box;
@@ -215,10 +190,6 @@ h1, h2, h3, h4, h5, h6 {
   /* Use fixed pixel values for consistent fade across all screen sizes */
   mask-image: linear-gradient(to bottom, black 0%, black 350px, transparent 650px);
   -webkit-mask-image: linear-gradient(to bottom, black 0%, black 350px, transparent 650px);
-  opacity: 0.25;
-}
-
-[data-theme="light"] .bg-grid {
   opacity: 0.18;
 }
 

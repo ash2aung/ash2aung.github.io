@@ -1,5 +1,5 @@
 /* =============================================================================
-   PROJECTS SECTION - Prototype Style
+   PROJECTS SECTION - Matching wow-factor-demo.html prototype exactly
    ============================================================================= */
 
 .proj-section-wrapper {
@@ -13,12 +13,12 @@
   margin: 0 auto;
 }
 
-/* Section Labels */
+/* Section Labels - matching prototype */
 .s-label {
   font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #5a7a4a;
+  color: hsl(var(--sage));
   margin-bottom: 0.6rem;
 }
 
@@ -28,7 +28,7 @@
   letter-spacing: -0.04em;
   line-height: 1.1;
   margin-bottom: 2.5rem;
-  color: #1a1a16;
+  color: hsl(var(--foreground));
 }
 
 /* Project Grid - 3 columns of squares */
@@ -41,9 +41,9 @@
 
 /* Project Card */
 .proj-card {
-  background: #ffffff;
-  border: 1px solid #e8e8e0;
-  border-radius: 10px;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--card-border));
+  border-radius: var(--radius);
   overflow: hidden;
   aspect-ratio: 1;
   display: flex;
@@ -59,7 +59,7 @@
   cursor: pointer;
 }
 
-/* Radial gradient on hover */
+/* Radial gradient on hover - sage green glow */
 .proj-card::before {
   content: '';
   position: absolute;
@@ -72,7 +72,7 @@
   opacity: 0;
   transition: opacity 0.3s;
   pointer-events: none;
-  border-radius: 10px;
+  border-radius: var(--radius);
 }
 
 .proj-card:hover::before {
@@ -105,13 +105,13 @@
   right: 1.1rem;
   font-size: 0.6rem;
   font-weight: 700;
-  color: #e0e0d8;
+  color: hsl(var(--border));
   transition: color 0.3s;
 }
 
 .proj-card:hover .proj-num-top,
 .proj-num-top.active {
-  color: #5a7a4a;
+  color: hsl(var(--sage));
 }
 
 /* Basic content */
@@ -123,13 +123,13 @@
 .proj-card h3 {
   font-size: 0.88rem;
   font-weight: 700;
-  color: #1a1a16;
+  color: hsl(var(--foreground));
   margin: 0 0 0.25rem 0;
 }
 
 .proj-desc {
   font-size: 0.68rem;
-  color: #9a9a8e;
+  color: hsl(var(--muted));
   line-height: 1.5;
   margin: 0 0 0.5rem 0;
 }
@@ -146,7 +146,7 @@
   padding: 0.12rem 0.4rem;
   border-radius: 3px;
   background: rgba(90, 122, 74, 0.08);
-  color: #5a7a4a;
+  color: hsl(var(--sage));
   font-weight: 500;
 }
 
@@ -188,14 +188,14 @@
 /* Screenshot placeholder */
 .proj-screenshot {
   border-radius: 7px;
-  background: #e0e0d8;
+  background: hsl(var(--border));
   height: 140px;
-  border: 1px solid #e8e8e0;
+  border: 1px solid hsl(var(--card-border));
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.6rem;
-  color: #9a9a8e;
+  color: hsl(var(--muted));
 }
 
 /* Detail section */
@@ -207,7 +207,7 @@
 
 .proj-detail-desc {
   font-size: 0.78rem;
-  color: #9a9a8e;
+  color: hsl(var(--muted));
   line-height: 1.7;
   margin: 0;
 }
@@ -233,8 +233,8 @@
 }
 
 .pl-btn.dark {
-  background: #1a1a16;
-  color: #f9f9f7;
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
 }
 
 .pl-btn.dark:hover {
@@ -243,12 +243,12 @@
 
 .pl-btn.outline {
   background: transparent;
-  border: 1px solid #e8e8e0;
-  color: #9a9a8e;
+  border: 1px solid hsl(var(--card-border));
+  color: hsl(var(--muted));
 }
 
 .pl-btn.outline:hover {
-  border-color: #9a9a8e;
+  border-color: hsl(var(--muted));
 }
 
 /* =============================================================================
@@ -257,7 +257,7 @@
 
 .section-divider {
   height: 1px;
-  background: #e0e0d8;
+  background: hsl(var(--border));
   margin: 0 3rem;
   position: relative;
   z-index: 1;
@@ -316,54 +316,4 @@
   .ptag {
     font-size: 0.65rem;
   }
-}
-
-/* Dark mode support */
-[data-theme="dark"] .proj-card {
-  background: #0a0a0a;
-  border-color: #1f1f1f;
-}
-
-[data-theme="dark"] .proj-card:hover:not(.expanded) {
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .proj-card h3 {
-  color: #e0e6ed;
-}
-
-[data-theme="dark"] .proj-desc {
-  color: #8a9bab;
-}
-
-[data-theme="dark"] .proj-num-top {
-  color: #333;
-}
-
-[data-theme="dark"] .proj-card:hover .proj-num-top,
-[data-theme="dark"] .proj-num-top.active {
-  color: #5a7a4a;
-}
-
-[data-theme="dark"] .proj-screenshot {
-  background: #1a1a1a;
-  border-color: #2a2a2a;
-}
-
-[data-theme="dark"] .s-title {
-  color: #e0e6ed;
-}
-
-[data-theme="dark"] .pl-btn.dark {
-  background: #e0e6ed;
-  color: #0a0a0a;
-}
-
-[data-theme="dark"] .pl-btn.outline {
-  border-color: #333;
-  color: #8a9bab;
-}
-
-[data-theme="dark"] .section-divider {
-  background: #1f1f1f;
 }

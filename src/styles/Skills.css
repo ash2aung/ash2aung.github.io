@@ -1,5 +1,6 @@
 /* =============================================================================
-   SKILLS SECTION - Compact Grouped Pills
+   SKILLS SECTION - Matching wow-factor-demo.html prototype exactly
+   Compact Grouped Pills with Dark Sweep Hover
    ============================================================================= */
 
 .skills-section-wrapper {
@@ -13,12 +14,12 @@
   margin: 0 auto;
 }
 
-/* Section Labels (reused from projects) */
+/* Section Labels - reusing .s-label and .s-title from Projects */
 .skills-section .s-label {
   font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #5a7a4a;
+  color: hsl(var(--sage));
   margin-bottom: 0.6rem;
 }
 
@@ -28,7 +29,7 @@
   letter-spacing: -0.04em;
   line-height: 1.1;
   margin-bottom: 2.5rem;
-  color: #1a1a16;
+  color: hsl(var(--foreground));
 }
 
 /* Skill Group */
@@ -40,7 +41,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #5a7a4a;
+  color: hsl(var(--sage));
   font-weight: 600;
   margin-bottom: 0.55rem;
 }
@@ -52,27 +53,27 @@
   gap: 0.35rem;
 }
 
-/* Individual Pill */
+/* Individual Pill - matching prototype exactly */
 .skill-pill {
   font-size: 0.78rem;
   font-weight: 500;
   padding: 0.4rem 0.85rem;
   border-radius: 6px;
-  background: #ffffff;
-  border: 1px solid #e8e8e0;
-  color: #1a1a16;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--card-border));
+  color: hsl(var(--foreground));
   cursor: default;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 
-/* Dark background sweep effect */
+/* Dark background sweep effect on hover */
 .skill-pill::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: #1a1a16;
+  background: hsl(var(--foreground));
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -84,7 +85,7 @@
 }
 
 .skill-pill:hover {
-  border-color: #1a1a16;
+  border-color: hsl(var(--foreground));
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -94,7 +95,7 @@
 }
 
 .skill-pill:hover span {
-  color: #f9f9f7;
+  color: hsl(var(--background));
 }
 
 /* =============================================================================
@@ -129,30 +130,4 @@
     font-size: 0.72rem;
     padding: 0.3rem 0.65rem;
   }
-}
-
-/* =============================================================================
-   DARK MODE
-   ============================================================================= */
-
-[data-theme="dark"] .skills-section .s-title {
-  color: #e0e6ed;
-}
-
-[data-theme="dark"] .skill-pill {
-  background: #0a0a0a;
-  border-color: #1f1f1f;
-  color: #e0e6ed;
-}
-
-[data-theme="dark"] .skill-pill::before {
-  background: #e0e6ed;
-}
-
-[data-theme="dark"] .skill-pill:hover {
-  border-color: #e0e6ed;
-}
-
-[data-theme="dark"] .skill-pill:hover span {
-  color: #0a0a0a;
 }
